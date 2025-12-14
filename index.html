@@ -189,66 +189,243 @@
           method="POST"
           netlify
           netlify-honeypot="bot-field"
+          action="/thank-you.html"
           class="contact-form"
         >
-          <!-- Honeypot spam protection (hidden) -->
+          <!-- Honeypot spam protection -->
           <p style="display: none">
-            <label
-              >Don't fill this out if you're human: <input name="bot-field"
-            /></label>
+            <label>Don't fill this out: <input name="bot-field" /></label>
           </p>
 
           <!-- Netlify form detection -->
           <input type="hidden" name="form-name" value="contact" />
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name *</label>
-              <input type="text" id="name" name="name" required />
+          <!-- Personal Information -->
+          <div class="form-section">
+            <h3 class="form-section-title">Your Information</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">
+                  <span class="label-icon">👤</span>
+                  Full Name <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="John Smith"
+                  minlength="2"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">
+                  <span class="label-icon">📧</span>
+                  Email Address <span class="required">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="john@example.com"
+                />
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">
+                  <span class="label-icon">📱</span>
+                  Phone Number <span class="required">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  placeholder="(615) 555-1234"
+                  pattern="[\(\d{3}\)\s\d{3}-\d{4}|\d{10}|\d{3}-\d{3}-\d{4}]"
+                  title="Please enter a valid phone number"
+                />
+                <small class="field-hint"
+                  >Format: (615) 555-1234 or 615-555-1234</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="contact-preference">
+                  <span class="label-icon">💬</span>
+                  Preferred Contact Method
+                </label>
+                <select id="contact-preference" name="contact-preference">
+                  <option value="email">Email</option>
+                  <option value="phone">Phone</option>
+                  <option value="text">Text Message</option>
+                  <option value="any">Any</option>
+                </select>
+              </div>
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" />
+          <!-- Event Details -->
+          <div class="form-section">
+            <h3 class="form-section-title">Event Details</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="event-date">
+                  <span class="label-icon">📅</span>
+                  Event Date <span class="required">*</span>
+                </label>
+                <input type="date" id="event-date" name="event-date" required />
+                <small class="field-hint">When is your event?</small>
+              </div>
+
+              <div class="form-group">
+                <label for="event-type">
+                  <span class="label-icon">🎉</span>
+                  Event Type <span class="required">*</span>
+                </label>
+                <select id="event-type" name="event-type" required>
+                  <option value="">Select event type</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="birthday">Birthday Party</option>
+                  <option value="corporate">Corporate Event</option>
+                  <option value="bar-restaurant">Bar/Restaurant</option>
+                  <option value="private-party">Private Party</option>
+                  <option value="fundraiser">Fundraiser</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="event-date">Event Date</label>
-              <input type="date" id="event-date" name="event-date" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="venue-location">
+                  <span class="label-icon">📍</span>
+                  Venue Location <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="venue-location"
+                  name="venue-location"
+                  required
+                  placeholder="Nashville, TN or venue name"
+                />
+                <small class="field-hint">City or venue name</small>
+              </div>
+
+              <div class="form-group">
+                <label for="guest-count">
+                  <span class="label-icon">👥</span>
+                  Expected Guests
+                </label>
+                <select id="guest-count" name="guest-count">
+                  <option value="">Select approximate count</option>
+                  <option value="1-25">1-25 guests</option>
+                  <option value="26-50">26-50 guests</option>
+                  <option value="51-100">51-100 guests</option>
+                  <option value="101-200">101-200 guests</option>
+                  <option value="200+">200+ guests</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="event-time">
+                  <span class="label-icon">🕐</span>
+                  Event Start Time
+                </label>
+                <input type="time" id="event-time" name="event-time" />
+              </div>
+
+              <div class="form-group">
+                <label for="event-duration">
+                  <span class="label-icon">⏱️</span>
+                  Estimated Duration
+                </label>
+                <select id="event-duration" name="event-duration">
+                  <option value="">Select duration</option>
+                  <option value="1-2-hours">1-2 hours</option>
+                  <option value="2-3-hours">2-3 hours</option>
+                  <option value="3-4-hours">3-4 hours</option>
+                  <option value="4+-hours">4+ hours</option>
+                  <option value="all-day">All day</option>
+                </select>
+              </div>
             </div>
           </div>
 
+          <!-- Additional Information -->
+          <div class="form-section">
+            <h3 class="form-section-title">Tell Us More</h3>
+
+            <div class="form-group">
+              <label for="message">
+                <span class="label-icon">✍️</span>
+                Additional Details <span class="required">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                placeholder="Tell us about your event... 
+
+- What's the vibe you're going for?
+- Any special song requests?
+- Is there a theme?
+- Anything else we should know?"
+                minlength="20"
+              ></textarea>
+              <small class="field-hint">Minimum 20 characters</small>
+            </div>
+
+            <div class="form-group">
+              <label for="how-heard">
+                <span class="label-icon">💡</span>
+                How did you hear about us?
+              </label>
+              <select id="how-heard" name="how-heard">
+                <option value="">Select one</option>
+                <option value="google">Google Search</option>
+                <option value="social-media">Social Media</option>
+                <option value="friend-referral">Friend/Family Referral</option>
+                <option value="saw-you-perform">Saw You Perform</option>
+                <option value="venue-recommendation">
+                  Venue Recommendation
+                </option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Budget Range (Optional but helpful) -->
           <div class="form-group">
-            <label for="event-type">Event Type *</label>
-            <select id="event-type" name="event-type" required>
-              <option value="">Select event type</option>
-              <option value="wedding">Wedding</option>
-              <option value="birthday">Birthday Party</option>
-              <option value="corporate">Corporate Event</option>
-              <option value="bar">Bar/Restaurant</option>
-              <option value="other">Other</option>
+            <label for="budget">
+              <span class="label-icon">💰</span>
+              Budget Range (Optional)
+            </label>
+            <select id="budget" name="budget">
+              <option value="">Prefer not to say</option>
+              <option value="under-500">Under $500</option>
+              <option value="500-1000">$500 - $1,000</option>
+              <option value="1000-2000">$1,000 - $2,000</option>
+              <option value="2000-3000">$2,000 - $3,000</option>
+              <option value="3000+">$3,000+</option>
             </select>
+            <small class="field-hint">Helps us provide accurate quotes</small>
           </div>
 
-          <div class="form-group">
-            <label for="message">Tell us about your event *</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              required
-              placeholder="Number of guests, venue location, special requests, etc."
-            ></textarea>
-          </div>
+          <button type="submit" class="submit-button">Send Inquiry 🎤</button>
 
-          <button type="submit" class="submit-button">Send Inquiry</button>
+          <p class="form-footer">
+            <span class="required">*</span> Required fields
+          </p>
         </form>
       </div>
     </section>
