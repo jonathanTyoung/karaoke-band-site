@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Nashville's premier karaoke entertainment for weddings, parties, and corporate events"
+    />
+    <title>Band Name - Karaoke Entertainment Nashville</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper CSS for carousel -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Sticky Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="#hero" class="nav-logo"> 🎤 Band Name </a>
+
+        <!-- Burger menu button (mobile) -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Nav links -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-cta">Book Now</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Nashville's Best Karaoke Experience</h1>
+        <p class="hero-subtitle">We bring the hits, you bring the voice!</p>
+        <a href="#contact" class="cta-button">Book Your Event</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+          <p class="text-lg">
+            We're Nashville's premier karaoke entertainment, bringing
+            unforgettable experiences to weddings, corporate events, birthday
+            parties, and more. With thousands of songs and professional
+            equipment, we guarantee your guests will have the time of their
+            lives.
+          </p>
+          <div class="about-features">
+            <div class="feature">
+              <span class="feature-icon">🎵</span>
+              <h3>Huge Song Library</h3>
+              <p>Thousands of songs across all genres</p>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">🎙️</span>
+              <h3>Pro Equipment</h3>
+              <p>Crystal clear sound and lighting</p>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">🎉</span>
+              <h3>Experienced Hosts</h3>
+              <p>We keep the energy high all night</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Recent Events</h2>
+        <p class="section-subtitle">See us in action at recent gigs</p>
+
+        <!-- Swiper Carousel -->
+        <div class="swiper gallery-swiper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 - Replace with actual images -->
+            <div class="swiper-slide">
+              <img
+                src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800"
+                alt="Event 1"
+              />
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <img
+                src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800"
+                alt="Event 2"
+              />
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <img
+                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800"
+                alt="Event 3"
+              />
+            </div>
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+              <img
+                src="https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=800"
+                alt="Event 4"
+              />
+            </div>
+          </div>
+
+          <!-- Navigation arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+
+          <!-- Pagination dots -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title">Perfect For Any Event</h2>
+        <p class="section-subtitle">We bring the party to you</p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="service-icon">💍</span>
+            <h3>Weddings</h3>
+            <p>
+              Make your special day unforgettable with interactive entertainment
+            </p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-icon">🎂</span>
+            <h3>Birthday Parties</h3>
+            <p>Celebrate in style with karaoke fun for all ages</p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-icon">🏢</span>
+            <h3>Corporate Events</h3>
+            <p>Team building and entertainment your employees will love</p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-icon">🍻</span>
+            <h3>Bars & Restaurants</h3>
+            <p>Weekly karaoke nights that keep customers coming back</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Book Your Event</h2>
+        <p class="section-subtitle">
+          Fill out the form below and we'll get back to you within 24 hours
+        </p>
+
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          class="contact-form"
+        >
+          <!-- Netlify form detection -->
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+
+            <div class="form-group">
+              <label for="event-date">Event Date</label>
+              <input type="date" id="event-date" name="event-date" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="event-type">Event Type *</label>
+            <select id="event-type" name="event-type" required>
+              <option value="">Select event type</option>
+              <option value="wedding">Wedding</option>
+              <option value="birthday">Birthday Party</option>
+              <option value="corporate">Corporate Event</option>
+              <option value="bar">Bar/Restaurant</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell us about your event *</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              placeholder="Number of guests, venue location, special requests, etc."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-button">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Band Name</h3>
+            <p>Nashville's Premier Karaoke Entertainment</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>📧 bookings@bandname.com</p>
+            <p>📱 (615) 555-1234</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook">Facebook</a>
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="TikTok">TikTok</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Band Name. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Your custom JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
