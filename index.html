@@ -7,7 +7,7 @@
       name="description"
       content="Nashville's premier karaoke entertainment for weddings, parties, and corporate events"
     />
-    <title>Band Name - Karaoke Entertainment Nashville</title>
+    <title>Nashville Live Band Karaoke</title>
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +26,7 @@
     <nav class="navbar">
       <div class="nav-container">
         <!-- Logo -->
-        <a href="#hero" class="nav-logo"> 🎤 Band Name </a>
+        <a href="#hero" class="nav-logo">Nashville Live Band Karaoke </a>
 
         <!-- Burger menu button (mobile) -->
         <button
@@ -167,13 +167,13 @@
             <p>Team building and entertainment your employees will love</p>
           </div>
 
-          <div class="service-card">
+          <!-- <div class="service-card">
             <span class="service-icon">🍻</span>
             <h3>Bars & Restaurants</h3>
             <p>Weekly karaoke nights that keep customers coming back</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <!-- Contact Form Section -->
@@ -274,39 +274,85 @@
           <div class="form-section">
             <h3 class="form-section-title">Event Details</h3>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="event-date">
-                  <span class="label-icon">📅</span>
-                  Event Date
-                </label>
-                <input type="date" id="event-date" name="event-date" required />
-                <small class="field-hint">When is your event?</small>
-              </div>
+            <div class="form-group">
+              <label for="event-type">
+                <span class="label-icon">🎊</span>
+                Event Type <span class="required">*</span>
+              </label>
+              <select id="event-type" name="event-type" required>
+                <option value="">Select event type</option>
+                <option value="wedding">Wedding</option>
+                <option value="birthday">Birthday Party</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="bar-restaurant">Bar/Restaurant</option>
+                <option value="private-party">Private Party</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
 
-              <div class="form-group">
-                <label for="event-type">
-                  <span class="label-icon">🎉</span>
-                  Event Type <span class="required">*</span>
-                </label>
-                <select id="event-type" name="event-type" required>
-                  <option value="">Select event type</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="birthday">Birthday Party</option>
-                  <option value="corporate">Corporate Event</option>
-                  <option value="bar-restaurant">Bar/Restaurant</option>
-                  <option value="private-party">Private Party</option>
-                  <option value="fundraiser">Fundraiser</option>
-                  <option value="other">Other</option>
-                </select>
+            <div class="form-group">
+              <label for="event-date">
+                <span class="label-icon">📅</span>
+                Event Date <span class="required">*</span>
+              </label>
+              <div
+                style="
+                  position: relative;
+                  display: flex;
+                  gap: 10px;
+                  align-items: stretch;
+                "
+              >
+                <input
+                  type="text"
+                  id="event-date"
+                  name="event-date"
+                  placeholder="e.g., 'October 15' or 'sometime in October'"
+                  required
+                  style="flex: 1"
+                />
+                <button
+                  type="button"
+                  id="calendar-trigger"
+                  style="
+                    background: linear-gradient(135deg, #ff006e, #8b00ff);
+                    color: white;
+                    border: 2px solid #ffbe0b;
+                    padding: 0 20px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-size: 24px;
+                    min-width: 60px;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+                  "
+                  title="Open calendar picker"
+                >
+                  📅
+                </button>
+                <input
+                  type="date"
+                  id="event-date-picker"
+                  style="
+                    position: absolute;
+                    opacity: 0;
+                    pointer-events: none;
+                    width: 1px;
+                    height: 1px;
+                    left: -9999px;
+                  "
+                />
               </div>
+              <small class="field-hint"
+                >Type a date/timeframe or click the calendar button</small
+              >
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="venue-location">
                   <span class="label-icon">📍</span>
-                  Venue Location 
+                  Venue Location
                 </label>
                 <input
                   type="text"
@@ -404,7 +450,7 @@
             </div>
           </div>
 
-          <!-- Budget Range (Optional but helpful) -->
+          <!-- Budget Range (Optional but helpful)
           <div class="form-group">
             <label for="budget">
               <span class="label-icon">💰</span>
@@ -419,7 +465,7 @@
               <option value="3000+">$3,000+</option>
             </select>
             <small class="field-hint">Helps us provide accurate quotes</small>
-          </div>
+          </div> -->
 
           <button type="submit" class="submit-button">Send Inquiry 🎤</button>
 
@@ -435,7 +481,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Band Name</h3>
+            <h3>Nashville Live Band Karaoke</h3>
             <p>Nashville's Premier Karaoke Entertainment</p>
           </div>
 
@@ -456,7 +502,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2025 Band Name. All rights reserved.</p>
+          <p>&copy; 2025 Nashville Live Band Karaoke. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -466,5 +512,62 @@
 
     <!-- Your custom JS -->
     <script src="script.js"></script>
+
+    <!-- Flexible date input script -->
+    <script>
+      // Get references to elements
+      const calendarTrigger = document.getElementById("calendar-trigger");
+      const hiddenDatePicker = document.getElementById("event-date-picker");
+      const textInput = document.getElementById("event-date");
+
+      // Add hover effects to calendar button
+      calendarTrigger.addEventListener("mouseenter", function () {
+        this.style.transform = "scale(1.05)";
+        this.style.boxShadow = "0 0 30px rgba(255, 0, 110, 0.6)";
+      });
+
+      calendarTrigger.addEventListener("mouseleave", function () {
+        this.style.transform = "scale(1)";
+        this.style.boxShadow = "0 0 20px rgba(255, 0, 110, 0.4)";
+      });
+
+      // When calendar button is clicked, trigger the hidden date input
+      calendarTrigger.addEventListener("click", function () {
+        hiddenDatePicker.style.position = "fixed";
+        hiddenDatePicker.style.top = "50%";
+        hiddenDatePicker.style.left = "50%";
+        hiddenDatePicker.style.opacity = "0.01";
+        hiddenDatePicker.style.pointerEvents = "auto";
+        hiddenDatePicker.style.width = "200px";
+        hiddenDatePicker.style.height = "200px";
+        hiddenDatePicker.showPicker();
+      });
+
+      // When a date is selected from the picker, format it nicely
+      hiddenDatePicker.addEventListener("change", function () {
+        if (this.value) {
+          const date = new Date(this.value);
+          const formatted = date.toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          });
+          textInput.value = formatted;
+        }
+        // Hide the date picker again
+        this.style.position = "absolute";
+        this.style.opacity = "0";
+        this.style.pointerEvents = "none";
+        this.style.left = "-9999px";
+      });
+
+      // Also hide when focus is lost (calendar closed without selection)
+      hiddenDatePicker.addEventListener("blur", function () {
+        this.style.position = "absolute";
+        this.style.opacity = "0";
+        this.style.pointerEvents = "none";
+        this.style.left = "-9999px";
+      });
+    </script>
   </body>
 </html>
