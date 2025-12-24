@@ -353,7 +353,6 @@ const ContactForm = () => {
               className={errors.eventDate ? "error" : ""}
               min={new Date().toISOString().split("T")[0]}
             />
-            <span className="field-hint">Select your event date</span>
             {errors.eventDate && (
               <motion.span
                 className="error-message"
