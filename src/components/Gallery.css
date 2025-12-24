@@ -1,0 +1,100 @@
+.section-subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.gallery-swiper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.gallery-slide {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  position: relative;
+}
+
+.gallery-slide:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+  border-color: #ffd700;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.gallery-slide:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* Swiper custom styles */
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  color: #ffd700;
+  background: rgba(20, 20, 20, 0.9);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 2px solid #ffd700;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-swiper .swiper-button-next:after,
+.gallery-swiper .swiper-button-prev:after {
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.gallery-swiper .swiper-button-next:hover,
+.gallery-swiper .swiper-button-prev:hover {
+  background: rgba(40, 40, 40, 0.9);
+  border-color: #ff1493;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 20, 147, 0.4);
+  transform: scale(1.15);
+}
+
+/* Pagination dots */
+.gallery-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.4);
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.gallery-swiper .swiper-pagination-bullet-active {
+  background: #ffd700;
+  width: 35px;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4);
+  border-color: #ffd700;
+}
+
+@media (max-width: 768px) {
+  .gallery-slide img {
+    height: 300px;
+  }
+
+  .gallery-swiper .swiper-button-next,
+  .gallery-swiper .swiper-button-prev {
+    display: none;
+  }
+}
