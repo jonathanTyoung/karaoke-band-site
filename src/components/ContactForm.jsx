@@ -52,7 +52,7 @@ const ContactForm = () => {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    const phoneRegex = /^[\d\s\-\(\)]+$/;
+    const phoneRegex = /^[\d\s\-()]+$/;
     if (!formData.phone.trim() || !phoneRegex.test(formData.phone)) {
       newErrors.phone = 'Please enter a valid phone number';
     }
