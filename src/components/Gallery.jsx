@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "./Gallery.css";
 
 const Gallery = () => {
-  const images = galleryData;
+const images = galleryData.images || galleryData;
 
   return (
     <section id="gallery" className="section section-alt">
