@@ -122,28 +122,6 @@ const ContactForm = () => {
     }
   };
 
-  // Calendar picker functionality - FIXED FOR MOBILE
-  const handleCalendarClick = () => {
-    const dateInput = document.getElementById("event-date-picker");
-    if (dateInput) {
-      // Trigger the date picker directly
-      dateInput.focus();
-      dateInput.click();
-    }
-  };
-
-  const handleDatePickerChange = (e) => {
-    if (e.target.value) {
-      const date = new Date(e.target.value);
-      const formatted = date.toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      });
-      setFormData((prev) => ({ ...prev, eventDate: formatted }));
-    }
-  };
-
   return (
     <div className="contact-form-wrapper">
       <AnimatePresence>
@@ -359,33 +337,23 @@ const ContactForm = () => {
             >
               Event Date <span className="required">*</span>
             </label>
-            <div className="date-input-wrapper">
-              <input
-                type="text"
-                id="event-date"
-                name="eventDate"
-                value={formData.eventDate}
-                onChange={handleChange}
-                onFocus={() => setFocusedField("event-date")}
-                onBlur={() => setFocusedField(null)}
-                className={errors.eventDate ? "error" : ""}
-                placeholder="e.g., 'October 15' or 'sometime in October'"
-              />
-              <button
-                type="button"
-                className="calendar-button"
-                onClick={handleCalendarClick}
-                title="Open calendar picker"
-              >
-                📅
-              </button>
-              <input
-                type="date"
-                id="event-date-picker"
-                onChange={handleDatePickerChange}
-                style={{ display: "none" }}
-              />
-            </div>
+            <input
+              type="date"
+              id="event-date"
+              name="eventDate"
+              value={formData.eventDate}
+              onChange={(e) => {
+                setFormData((prev) => ({ ...prev, eventDate: e.target.value }));
+                if (errors.eventDate) {
+                  setErrors((prev) => ({ ...prev, eventDate: "" }));
+                }
+              }}
+              onFocus={() => setFocusedField("event-date")}
+              onBlur={() => setFocusedField(null)}
+              className={errors.eventDate ? "error" : ""}
+              min={new Date().toISOString().split("T")[0]}
+            />
+            <span className="field-hint">Select your event date</span>
             {errors.eventDate && (
               <motion.span
                 className="error-message"
