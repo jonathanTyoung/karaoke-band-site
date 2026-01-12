@@ -13,8 +13,8 @@ const Footer = () => {
 
           <div className="footer-section">
             <h4>Contact</h4>
-            <p>📧 bookings@nashvillekaraoke.com</p>
-            <p>📱 (615) 555-1234</p>
+            <p>📧 info@nashvillelivebandkaraoke.com</p>
+            <p>📱 (615) 554-6020</p>
           </div>
 
           <div className="footer-section">

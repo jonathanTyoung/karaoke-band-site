@@ -35,7 +35,11 @@ const Navbar = () => {
           className="nav-logo"
           onClick={(e) => scrollToSection(e, "hero")}
         >
-          🎤 Nashville Live Band Karaoke
+          <img
+            src="/navbar-logo4.png"
+            alt="Nashville Live Band Karaoke"
+            className="nav-logo-img"
+          />
         </a>
 
         <button
