@@ -13,12 +13,12 @@ const Footer = () => {
 
           <div className="footer-section">
             <h4>Contact</h4>
-            <p>📧 bookings@nashvillekaraoke.com</p>
-            <p>📱 (615) 555-1234</p>
+            <p>📧 info@nashvillelivebandkaraoke.com</p>
+            <p>📱 (615) 554-6020</p>
           </div>
 
           <div className="footer-section">
-            <h4>Follow Us</h4>
+            {/* <h4>Follow Us</h4>
             <div className="social-links">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 Facebook
@@ -29,7 +29,7 @@ const Footer = () => {
               <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                 TikTok
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
 
