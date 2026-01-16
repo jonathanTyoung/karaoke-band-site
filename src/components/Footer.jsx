@@ -18,7 +18,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-section">
-            <h4>Follow Us</h4>
+            {/* <h4>Follow Us</h4>
             <div className="social-links">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 Facebook
@@ -29,7 +29,7 @@ const Footer = () => {
               <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                 TikTok
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
 
