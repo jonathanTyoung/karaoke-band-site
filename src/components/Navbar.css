@@ -45,6 +45,10 @@
   filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.3));
 }
 
+.nav-logo-mobile {
+  display: none;
+}
+
 .navbar.scrolled .nav-logo-img {
   height: 38px;
 }
@@ -169,12 +173,22 @@
     padding: 0.75rem 1.5rem;
   }
 
+  /* Hide image logo on mobile */
   .nav-logo-img {
-    height: 36px;
+    display: none;
   }
 
-  .navbar.scrolled .nav-logo-img {
-    height: 32px;
+  /* Show abbreviated text logo on mobile */
+  .nav-logo-mobile {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ffd700, #ff1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
   }
 
   /* Adjust hover effects for mobile */
@@ -213,17 +227,8 @@
     padding: 0.75rem 1rem;
   }
 
-  .nav-logo-img {
-    height: 32px;
-  }
-
-  .navbar.scrolled .nav-logo-img {
-    height: 28px;
-  }
-
-  /* Reduce hover scale even more on small screens */
-  .nav-logo:hover {
-    transform: scale(1.01);
+  .nav-logo-mobile {
+    font-size: 1.5rem;
   }
 }
 
@@ -233,11 +238,8 @@
     padding: 0.5rem 0.75rem;
   }
 
-  .nav-logo-img {
-    height: 28px;
-  }
-
-  .navbar.scrolled .nav-logo-img {
-    height: 26px;
+  .nav-logo-mobile {
+    font-size: 1.35rem;
+    letter-spacing: 0.1em;
   }
 }

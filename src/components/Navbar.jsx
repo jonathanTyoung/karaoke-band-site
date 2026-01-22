@@ -40,6 +40,7 @@ const Navbar = () => {
             alt="Nashville Live Band Karaoke"
             className="nav-logo-img"
           />
+          <span className="nav-logo-mobile">NLBK</span>
         </a>
 
         <button
