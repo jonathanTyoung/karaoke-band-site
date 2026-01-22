@@ -148,6 +148,18 @@
   background: #ff1493;
 }
 
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .nav-logo-img {
+    height: 40px;
+  }
+
+  .navbar.scrolled .nav-logo-img {
+    height: 35px;
+  }
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
@@ -158,11 +170,16 @@
   }
 
   .nav-logo-img {
-    height: 38px;
+    height: 36px;
   }
 
   .navbar.scrolled .nav-logo-img {
     height: 32px;
+  }
+
+  /* Adjust hover effects for mobile */
+  .nav-logo:hover {
+    transform: scale(1.02);
   }
 
   .nav-menu {
@@ -187,5 +204,40 @@
 
   .nav-link::after {
     display: none;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-logo-img {
+    height: 32px;
+  }
+
+  .navbar.scrolled .nav-logo-img {
+    height: 28px;
+  }
+
+  /* Reduce hover scale even more on small screens */
+  .nav-logo:hover {
+    transform: scale(1.01);
+  }
+}
+
+/* Extra small devices (very narrow phones) */
+@media (max-width: 360px) {
+  .nav-container {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .nav-logo-img {
+    height: 28px;
+  }
+
+  .navbar.scrolled .nav-logo-img {
+    height: 26px;
   }
 }
