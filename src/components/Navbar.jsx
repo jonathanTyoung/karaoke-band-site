@@ -83,6 +83,15 @@ const Navbar = () => {
           </li>
           <li>
             <a
+              href="#testimonials"
+              className="nav-link"
+              onClick={(e) => scrollToSection(e, "testimonials")}
+            >
+              Testimonials
+            </a>
+          </li>
+          <li>
+            <a
               href="#contact"
               className="nav-cta"
               onClick={(e) => scrollToSection(e, "contact")}
