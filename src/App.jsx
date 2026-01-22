@@ -6,6 +6,7 @@ import Gallery from "./components/Gallery";
 import Services from "./components/Services";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import Testimonials from "./components/Testimonials";
 import "./App.css";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <About />
       <Gallery />
       <Services />
+      <Testimonials />
       <section
         id="contact"
         className="section section-alt"
