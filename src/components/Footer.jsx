@@ -18,18 +18,18 @@ const Footer = () => {
           </div>
 
           <div className="footer-section">
-            {/* <h4>Follow Us</h4>
+            <h4>Follow Us</h4>
             <div className="social-links">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 Facebook
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              </a> */}
+              <a href="https://www.instagram.com/nashvillelivebandkaraoke/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 Instagram
               </a>
-              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                TikTok
+              <a href="https://www.youtube.com/channel/UCz_99924laysy_Jqhc9X4hg" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                Youtube
               </a>
-            </div> */}
+            </div>
           </div>
         </div>
 
