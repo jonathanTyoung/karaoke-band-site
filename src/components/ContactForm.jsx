@@ -23,18 +23,23 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  // Handle input changes
+  // Handle input changes - converts kebab-case to camelCase for state
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
+    // Convert kebab-case name to camelCase for state
+    const camelName = name.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [camelName]: value,
     }));
+    
     // Clear error when user starts typing
-    if (errors[name]) {
+    if (errors[camelName]) {
       setErrors((prev) => ({
         ...prev,
-        [name]: "",
+        [camelName]: "",
       }));
     }
   };
@@ -269,7 +274,7 @@ const ContactForm = () => {
               </label>
               <select
                 id="contact-preference"
-                name="contactPreference"
+                name="contact-preference"
                 value={formData.contactPreference}
                 onChange={handleChange}
                 onFocus={() => setFocusedField("contact-preference")}
@@ -305,7 +310,7 @@ const ContactForm = () => {
             </label>
             <select
               id="event-type"
-              name="eventType"
+              name="event-type"
               value={formData.eventType}
               onChange={handleChange}
               onFocus={() => setFocusedField("event-type")}
@@ -340,14 +345,9 @@ const ContactForm = () => {
             <input
               type="date"
               id="event-date"
-              name="eventDate"
+              name="event-date"
               value={formData.eventDate}
-              onChange={(e) => {
-                setFormData((prev) => ({ ...prev, eventDate: e.target.value }));
-                if (errors.eventDate) {
-                  setErrors((prev) => ({ ...prev, eventDate: "" }));
-                }
-              }}
+              onChange={handleChange}
               onFocus={() => setFocusedField("event-date")}
               onBlur={() => setFocusedField(null)}
               className={errors.eventDate ? "error" : ""}
@@ -375,7 +375,7 @@ const ContactForm = () => {
               <input
                 type="text"
                 id="venue-location"
-                name="venueLocation"
+                name="venue-location"
                 value={formData.venueLocation}
                 onChange={handleChange}
                 onFocus={() => setFocusedField("venue-location")}
@@ -393,7 +393,7 @@ const ContactForm = () => {
               </label>
               <select
                 id="guest-count"
-                name="guestCount"
+                name="guest-count"
                 value={formData.guestCount}
                 onChange={handleChange}
                 onFocus={() => setFocusedField("guest-count")}
@@ -420,7 +420,7 @@ const ContactForm = () => {
               <input
                 type="time"
                 id="event-time"
-                name="eventTime"
+                name="event-time"
                 value={formData.eventTime}
                 onChange={handleChange}
                 onFocus={() => setFocusedField("event-time")}
@@ -437,7 +437,7 @@ const ContactForm = () => {
               </label>
               <select
                 id="event-duration"
-                name="eventDuration"
+                name="event-duration"
                 value={formData.eventDuration}
                 onChange={handleChange}
                 onFocus={() => setFocusedField("event-duration")}
@@ -509,7 +509,7 @@ const ContactForm = () => {
             </label>
             <select
               id="how-heard"
-              name="howHeard"
+              name="how-heard"
               value={formData.howHeard}
               onChange={handleChange}
               onFocus={() => setFocusedField("how-heard")}
