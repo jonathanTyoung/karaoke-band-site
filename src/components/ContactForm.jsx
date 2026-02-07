@@ -441,13 +441,14 @@ const ContactForm = () => {
                 Event Start Time
               </label>
               <input
-                type="time"
+                type="text"
                 id="event-time"
                 name="event-time"
                 value={formData.eventTime}
                 onChange={handleChange}
                 onFocus={() => handleFocus("event-time")}
                 onBlur={handleBlur}
+                placeholder="7:00 PM"
               />
             </div>
 
