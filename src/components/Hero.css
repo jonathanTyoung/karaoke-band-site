@@ -105,6 +105,7 @@
   transform: translateY(-4px) scale(1.02);
 }
 
+/* Mobile Optimization - Larger Logo */
 @media (max-width: 768px) {
   .hero-section {
     margin-top: 60px;
@@ -120,8 +121,8 @@
   }
 
   .hero-logo {
-    max-width: 600px;
-    max-height: 40vh;
+    max-width: 95%;
+    max-height: 55vh;
   }
 
   .cta-button {
@@ -140,8 +141,8 @@
   }
 
   .hero-logo {
-    max-width: 400px;
-    max-height: 32vh;
+    max-width: 95%;
+    max-height: 50vh;
   }
 
   .hero-subtitle {
