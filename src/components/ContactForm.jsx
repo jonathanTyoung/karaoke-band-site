@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./ContactForm.css";
 
@@ -22,6 +22,17 @@ const ContactForm = () => {
   const [focusedField, setFocusedField] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  // Scroll to first error on validation failure (mobile UX improvement)
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      const firstErrorField = Object.keys(errors)[0];
+      const element = document.getElementById(firstErrorField);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }, [errors]);
 
   // Handle input changes - converts kebab-case to camelCase for state
   const handleChange = (e) => {
@@ -100,6 +111,10 @@ const ContactForm = () => {
       });
 
       setSubmitSuccess(true);
+      
+      // Scroll to top to show success message on mobile
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
       setFormData({
         name: "",
         email: "",
@@ -125,6 +140,15 @@ const ContactForm = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // Handle focus for better mobile UX
+  const handleFocus = (fieldName) => {
+    setFocusedField(fieldName);
+  };
+
+  const handleBlur = () => {
+    setFocusedField(null);
   };
 
   return (
@@ -168,10 +192,7 @@ const ContactForm = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="form-section-title">
-            {/* <span className="section-icon">👤</span> */}
-            Your Information
-          </h3>
+          <h3 className="form-section-title">Your Information</h3>
 
           <div className="form-row">
             <div className="form-group">
@@ -187,10 +208,11 @@ const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                onFocus={() => setFocusedField("name")}
-                onBlur={() => setFocusedField(null)}
+                onFocus={() => handleFocus("name")}
+                onBlur={handleBlur}
                 className={errors.name ? "error" : ""}
                 placeholder="John Smith"
+                autoComplete="name"
               />
               {errors.name && (
                 <motion.span
@@ -216,10 +238,12 @@ const ContactForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                onFocus={() => setFocusedField("email")}
-                onBlur={() => setFocusedField(null)}
+                onFocus={() => handleFocus("email")}
+                onBlur={handleBlur}
                 className={errors.email ? "error" : ""}
                 placeholder="john@example.com"
+                autoComplete="email"
+                inputMode="email"
               />
               {errors.email && (
                 <motion.span
@@ -247,10 +271,12 @@ const ContactForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                onFocus={() => setFocusedField("phone")}
-                onBlur={() => setFocusedField(null)}
+                onFocus={() => handleFocus("phone")}
+                onBlur={handleBlur}
                 className={errors.phone ? "error" : ""}
                 placeholder="(615) 555-1234"
+                autoComplete="tel"
+                inputMode="tel"
               />
               {errors.phone && (
                 <motion.span
@@ -277,8 +303,8 @@ const ContactForm = () => {
                 name="contact-preference"
                 value={formData.contactPreference}
                 onChange={handleChange}
-                onFocus={() => setFocusedField("contact-preference")}
-                onBlur={() => setFocusedField(null)}
+                onFocus={() => handleFocus("contact-preference")}
+                onBlur={handleBlur}
               >
                 <option value="email">Email</option>
                 <option value="phone">Phone</option>
@@ -296,10 +322,7 @@ const ContactForm = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <h3 className="form-section-title">
-            {/* <span className="section-icon">🎊</span> */}
-            Event Details
-          </h3>
+          <h3 className="form-section-title">Event Details</h3>
 
           <div className="form-group">
             <label
@@ -313,8 +336,8 @@ const ContactForm = () => {
               name="event-type"
               value={formData.eventType}
               onChange={handleChange}
-              onFocus={() => setFocusedField("event-type")}
-              onBlur={() => setFocusedField(null)}
+              onFocus={() => handleFocus("event-type")}
+              onBlur={handleBlur}
               className={errors.eventType ? "error" : ""}
             >
               <option value="">Select event type</option>
@@ -348,8 +371,8 @@ const ContactForm = () => {
               name="event-date"
               value={formData.eventDate}
               onChange={handleChange}
-              onFocus={() => setFocusedField("event-date")}
-              onBlur={() => setFocusedField(null)}
+              onFocus={() => handleFocus("event-date")}
+              onBlur={handleBlur}
               className={errors.eventDate ? "error" : ""}
               min={new Date().toISOString().split("T")[0]}
             />
@@ -378,8 +401,8 @@ const ContactForm = () => {
                 name="venue-location"
                 value={formData.venueLocation}
                 onChange={handleChange}
-                onFocus={() => setFocusedField("venue-location")}
-                onBlur={() => setFocusedField(null)}
+                onFocus={() => handleFocus("venue-location")}
+                onBlur={handleBlur}
                 placeholder="Nashville, TN or venue name"
               />
             </div>
@@ -396,8 +419,8 @@ const ContactForm = () => {
                 name="guest-count"
                 value={formData.guestCount}
                 onChange={handleChange}
-                onFocus={() => setFocusedField("guest-count")}
-                onBlur={() => setFocusedField(null)}
+                onFocus={() => handleFocus("guest-count")}
+                onBlur={handleBlur}
               >
                 <option value="">Select approximate count</option>
                 <option value="1-25">1-25 guests</option>
@@ -423,8 +446,8 @@ const ContactForm = () => {
                 name="event-time"
                 value={formData.eventTime}
                 onChange={handleChange}
-                onFocus={() => setFocusedField("event-time")}
-                onBlur={() => setFocusedField(null)}
+                onFocus={() => handleFocus("event-time")}
+                onBlur={handleBlur}
               />
             </div>
 
@@ -440,8 +463,8 @@ const ContactForm = () => {
                 name="event-duration"
                 value={formData.eventDuration}
                 onChange={handleChange}
-                onFocus={() => setFocusedField("event-duration")}
-                onBlur={() => setFocusedField(null)}
+                onFocus={() => handleFocus("event-duration")}
+                onBlur={handleBlur}
               >
                 <option value="">Select duration</option>
                 <option value="1-2-hours">1-2 hours</option>
@@ -461,10 +484,7 @@ const ContactForm = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="form-section-title">
-            {/* <span className="section-icon">✍️</span> */}
-            Tell Us More
-          </h3>
+          <h3 className="form-section-title">Tell Us More</h3>
 
           <div className="form-group">
             <label
@@ -478,8 +498,8 @@ const ContactForm = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              onFocus={() => setFocusedField("message")}
-              onBlur={() => setFocusedField(null)}
+              onFocus={() => handleFocus("message")}
+              onBlur={handleBlur}
               className={errors.message ? "error" : ""}
               rows="6"
               placeholder="Tell us about your event... 
@@ -512,8 +532,8 @@ const ContactForm = () => {
               name="how-heard"
               value={formData.howHeard}
               onChange={handleChange}
-              onFocus={() => setFocusedField("how-heard")}
-              onBlur={() => setFocusedField(null)}
+              onFocus={() => handleFocus("how-heard")}
+              onBlur={handleBlur}
             >
               <option value="">Select one</option>
               <option value="google">Google Search</option>
