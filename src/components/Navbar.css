@@ -178,17 +178,12 @@
     display: none;
   }
 
-  /* Show abbreviated text logo on mobile */
+  /* Show image logo on mobile */
   .nav-logo-mobile {
     display: block;
-    font-size: 1.75rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #ffd700, #ff1493);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: 0.15em;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.3));
   }
 
   /* Adjust hover effects for mobile */
@@ -228,7 +223,7 @@
   }
 
   .nav-logo-mobile {
-    font-size: 1.5rem;
+    height: 35px;
   }
 }
 
@@ -239,7 +234,6 @@
   }
 
   .nav-logo-mobile {
-    font-size: 1.35rem;
-    letter-spacing: 0.1em;
+    height: 30px;
   }
 }
