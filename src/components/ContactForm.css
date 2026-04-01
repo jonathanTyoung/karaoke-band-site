@@ -15,7 +15,7 @@
   top: 20px;
   right: 20px;
   z-index: 1000;
-  background: linear-gradient(135deg, #ff1493, #c2006a);
+  background: linear-gradient(135deg, var(--primary-pink), #c2006a);
   color: white;
   padding: 2rem;
   border-radius: 12px;
@@ -122,13 +122,13 @@
 }
 
 .form-group label.focused {
-  color: #ffd700;
+  color: var(--primary-gold);
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   transform: translateX(5px);
 }
 
 .required {
-  color: #ff1493;
+  color: var(--primary-pink);
   font-weight: bold;
   text-shadow: 0 0 8px rgba(255, 20, 147, 0.6);
 }
@@ -159,9 +159,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   background: rgba(40, 40, 40, 0.9);
-  border-color: #ffd700;
+  border-color: var(--primary-gold);
   box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1), 0 0 30px rgba(255, 215, 0, 0.3);
-  transform: translateY(-2px);
 }
 
 /* Select styling */
@@ -188,55 +187,18 @@
   line-height: 1.6;
 }
 
-/* Date Input Wrapper - FIXED FOR MOBILE */
-.date-input-wrapper {
-  position: relative;
-  display: flex;
-  gap: 0.75rem;
-  align-items: stretch;
-  box-sizing: border-box;
-}
-
-.date-input-wrapper input[type="text"] {
-  flex: 1;
-  min-width: 0; /* Prevents flex overflow */
-}
-
-.calendar-button {
-  background: linear-gradient(135deg, #ff1493, #00d9ff);
-  color: white;
-  border: 2px solid #ffd700;
-  padding: 0 1.5rem;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  min-width: 60px;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
-}
-
-.calendar-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 35px rgba(255, 20, 147, 0.7);
-}
-
-.calendar-button:active {
-  transform: scale(0.95);
-}
-
 /* Error States */
 .form-group input.error,
 .form-group select.error,
 .form-group textarea.error {
-  border-color: #ff1493;
+  border-color: var(--primary-pink);
   background: rgba(255, 20, 147, 0.1);
   box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
 }
 
 .error-message {
   display: block;
-  color: #ff1493;
+  color: var(--primary-pink);
   font-size: 0.875rem;
   margin-top: 0.5rem;
   font-weight: 500;
@@ -247,7 +209,7 @@
 .submit-button {
   width: 100%;
   padding: 1.4rem 2rem;
-  background: linear-gradient(135deg, #ff1493, #c2006a);
+  background: linear-gradient(135deg, var(--primary-pink), #c2006a);
   color: white;
   border: 2px solid rgba(255, 215, 0, 0.55);
   border-radius: 8px;
@@ -289,7 +251,7 @@
   width: 20px;
   height: 20px;
   border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #ffd700;
+  border-top-color: var(--primary-gold);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
@@ -310,61 +272,14 @@
 }
 
 .submit-error {
-  color: #ff1493;
+  color: var(--primary-pink);
   text-align: center;
   margin-top: 1rem;
   font-weight: 600;
   text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
 }
 
-/* MOBILE RESPONSIVE FIXES */
-@media (max-width: 768px) {
-  .contact-form-wrapper {
-    padding: 0 0.5rem;
-  }
-
-  .premium-contact-form {
-    padding: 2rem 1rem;
-    border-radius: 20px;
-  }
-
-  .form-section {
-    padding: 1.5rem 1rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 0.875rem 1rem;
-  }
-
-  .date-input-wrapper {
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-
-  .calendar-button {
-    min-width: 50px;
-    padding: 0 1rem;
-    font-size: 1.25rem;
-  }
-
-  .submit-button {
-    padding: 1.25rem 1.5rem;
-    font-size: 1.1rem;
-  }
-}
-
-/* Date input styling - make it look good on all devices */
+/* Date input styling */
 .form-group input[type="date"] {
   cursor: pointer;
   position: relative;
@@ -381,7 +296,336 @@
   opacity: 1;
 }
 
-/* Firefox date picker styling */
 .form-group input[type="date"]::-moz-calendar-picker-indicator {
   cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE — step flow chrome (hidden on desktop)
+═══════════════════════════════════════════════════════════ */
+
+/* Hidden by default — shown only in mobile media query */
+.mobile-stepper,
+.mobile-nav,
+.mobile-only {
+  display: none;
+}
+
+/* ── Desktop overrides ─────────────────────────────────── */
+@media (min-width: 769px) {
+  /* Steps render as stacked form sections */
+  .steps-viewport {
+    overflow: visible;
+  }
+
+  .steps-track {
+    display: block;
+    /* Reset any inline transform from JS */
+    transform: none !important;
+  }
+
+  .step-slide {
+    width: auto;
+    flex-shrink: unset;
+    /* Inherits .form-section styles — margin-bottom already set */
+  }
+
+  /* SR-only wrappers are fully visible on desktop */
+  .event-type-select-wrapper,
+  .guest-count-select-wrapper {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+  }
+
+  /* Mobile-only elements hidden on desktop */
+  .mobile-only {
+    display: none !important;
+  }
+
+  /* Desktop submit button always visible on desktop */
+  .desktop-submit {
+    display: flex;
+  }
+}
+
+/* ── Mobile styles ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .contact-form-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  .premium-contact-form {
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+  }
+
+  /* Progress chrome */
+  .mobile-stepper {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-counter-text {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.6rem;
+    text-align: center;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-pink), var(--primary-gold));
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+  }
+
+  /* Carousel viewport */
+  .steps-viewport {
+    overflow: hidden;
+  }
+
+  .steps-track {
+    display: flex;
+    will-change: transform;
+  }
+
+  .step-slide {
+    width: 100%;
+    flex-shrink: 0;
+    /* Override .form-section bottom margin so slides don't stack vertically */
+    margin-bottom: 0;
+    /* Keep the form-section padding/bg/border */
+  }
+
+  /* Step titles — slightly smaller on mobile */
+  .form-section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Collapse two-col rows to single col */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.875rem 1rem;
+  }
+
+  /* ── Event type cards ────────────────────────────────── */
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .event-type-cards {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  .event-type-card {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 1rem 0.5rem;
+    background: rgba(30, 30, 30, 0.7);
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    border-radius: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    min-height: 80px;
+  }
+
+  .event-type-card:active {
+    transform: scale(0.97);
+  }
+
+  .event-type-card.selected {
+    background: rgba(255, 20, 147, 0.15);
+    border-color: var(--primary-pink);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.35);
+  }
+
+  .card-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .card-label {
+    font-size: 0.85rem;
+  }
+
+  /* SR-only: event type select stays in DOM for Netlify, invisible on mobile */
+  .event-type-select-wrapper {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* ── Guest count cards ───────────────────────────────── */
+  .guest-count-cards {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+
+  .guest-count-card {
+    flex: 1 1 calc(33.333% - 0.6rem);
+    min-width: 70px;
+    padding: 0.75rem 0.5rem;
+    background: rgba(30, 30, 30, 0.7);
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .guest-count-card:active {
+    transform: scale(0.97);
+  }
+
+  .guest-count-card.selected {
+    background: rgba(255, 20, 147, 0.15);
+    border-color: var(--primary-pink);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(255, 20, 147, 0.3);
+  }
+
+  /* SR-only: guest count select stays in DOM for Netlify, invisible on mobile */
+  .guest-count-select-wrapper {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* ── Desktop submit — hidden on mobile ───────────────── */
+  .desktop-submit {
+    display: none !important;
+  }
+
+  /* ── Mobile nav bar ──────────────────────────────────── */
+  .mobile-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .mobile-nav-btn {
+    flex: 1;
+    min-height: 52px;
+    border-radius: 10px;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .mobile-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Back — ghost style */
+  .mobile-nav-back {
+    background: transparent;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .mobile-nav-back:hover:not(:disabled) {
+    border-color: rgba(255, 215, 0, 0.6);
+    color: #fff;
+  }
+
+  /* Next / Send — hot pink */
+  .mobile-nav-next {
+    background: linear-gradient(135deg, var(--primary-pink), #c2006a);
+    border: 2px solid rgba(255, 215, 0, 0.45);
+    color: #fff;
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
+  }
+
+  .mobile-nav-next:hover:not(:disabled) {
+    box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
+    border-color: rgba(255, 215, 0, 0.75);
+  }
+
+  /* Guest count label */
+  .guest-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-type-card {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-height: 72px;
+  }
+
+  .guest-count-card {
+    flex: 1 1 calc(50% - 0.6rem);
+  }
 }
