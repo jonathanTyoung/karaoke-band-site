@@ -6,17 +6,21 @@
 
 :root {
   --primary-gold: #ffd700;
+  --primary-amber: #e8890c;
+  --primary-amber-bright: #ffb830;
   --primary-pink: #ff1493;
-  --primary-purple: #00d9ff;
-  --bg-dark: #0a0a0a;
-  --bg-medium: #1a1a1a;
-  --bg-light: #2a2a2a;
+  --primary-teal: #00d9ff;
+  --bg-dark: #060608;
+  --bg-medium: #111116;
+  --bg-light: #1e1e26;
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.9);
   --text-muted: rgba(255, 255, 255, 0.6);
-  --accent-glow: rgba(255, 215, 0, 0.3);
+  --accent-glow: rgba(232, 137, 12, 0.3);
   --card-bg: rgba(255, 255, 255, 0.05);
-  --border-color: rgba(255, 215, 0, 0.2);
+  --border-color: rgba(232, 137, 12, 0.25);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Poppins', sans-serif;
 }
 
 html {
@@ -24,33 +28,58 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0a0a0a;
+  background: var(--bg-dark);
   color: var(--text-primary);
   overflow-x: hidden;
 }
 
 .App {
   min-height: 100vh;
-  background: #0a0a0a;
+  background: var(--bg-dark);
 }
 
-/* Clean solid backgrounds */
+/* Base dark background — individual sections can override */
 .section,
 .section-alt,
-section,
-#hero,
-#about,
-#gallery,
-#services,
-#contact,
-.hero-section {
-  background: #0a0a0a !important;
+section {
+  background: var(--bg-dark);
   position: relative;
+}
+
+/* ─── Global layout ──────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Global typography ──────────────────────────────────────── */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-pink) 65%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 ::-webkit-scrollbar {
@@ -64,15 +93,15 @@ section,
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     135deg,
-    var(--primary-pink),
-    var(--primary-purple)
+    var(--primary-amber),
+    var(--primary-pink)
   );
   border-radius: 6px;
   border: 2px solid var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, var(--primary-gold), var(--primary-pink));
+  background: linear-gradient(135deg, var(--primary-gold), var(--primary-amber));
 }
 
 ::selection {

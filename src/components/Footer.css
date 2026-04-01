@@ -15,26 +15,40 @@
 }
 
 .footer-section h3 {
-  font-size: 1.5rem;
-  color: #ffd700;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.06em;
+  color: var(--primary-gold);
   margin-bottom: 1rem;
-  font-weight: 700;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-  letter-spacing: 0.02em;
+  text-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
 }
 
 .footer-section h4 {
-  font-size: 1.25rem;
-  color: #ffd700;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+  color: var(--primary-gold);
   margin-bottom: 1rem;
-  font-weight: 600;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
 }
 
 .footer-section p {
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.8;
   margin-bottom: 0.5rem;
+}
+
+.footer-contact-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-contact-line svg {
+  color: var(--primary-gold);
+  flex-shrink: 0;
+  opacity: 0.85;
 }
 
 .social-links {
@@ -64,9 +78,8 @@
 }
 
 .social-links a:hover {
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-  transform: translateX(8px);
+  color: var(--primary-gold);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
 }
 
 .social-links a:hover::after {

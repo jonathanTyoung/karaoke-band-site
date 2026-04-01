@@ -15,13 +15,13 @@
   top: 20px;
   right: 20px;
   z-index: 1000;
-  background: linear-gradient(135deg, #ffd700, #ff1493);
+  background: linear-gradient(135deg, #ff1493, #c2006a);
   color: white;
   padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 0 50px rgba(255, 20, 147, 0.6), 0 20px 60px rgba(0, 0, 0, 0.5);
   max-width: 400px;
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  border: 2px solid rgba(255, 215, 0, 0.5);
 }
 
 .success-content {
@@ -83,19 +83,18 @@
 .form-section:hover {
   background: rgba(40, 40, 40, 0.6);
   border-color: rgba(255, 215, 0, 0.4);
-  transform: translateY(-2px);
 }
 
 .form-section-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
-  color: #ffd700;
+  color: var(--primary-gold);
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-  letter-spacing: 0.02em;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
 }
 
 /* Form Rows */
@@ -247,36 +246,37 @@
 /* Submit Button */
 .submit-button {
   width: 100%;
-  padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, #ff1493, #00d9ff);
+  padding: 1.4rem 2rem;
+  background: linear-gradient(135deg, #ff1493, #c2006a);
   color: white;
-  border: 3px solid #ffd700;
-  border-radius: 15px;
-  font-size: 1.35rem;
-  font-weight: 800;
+  border: 2px solid rgba(255, 215, 0, 0.55);
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 40px rgba(255, 20, 147, 0.5),
-    0 0 60px rgba(0, 217, 255, 0.3);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 0 35px rgba(255, 20, 147, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   margin-top: 2rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
 .submit-button:hover:not(:disabled) {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(255, 20, 147, 0.7),
-    0 0 80px rgba(0, 217, 255, 0.5);
+  transform: scale(1.02);
+  box-shadow: 0 0 55px rgba(255, 20, 147, 0.65),
+    0 0 90px rgba(255, 20, 147, 0.25),
+    0 0 120px rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.85);
 }
 
 .submit-button:active:not(:disabled) {
-  transform: translateY(-2px) scale(1.01);
+  transform: scale(1.0);
 }
 
 .submit-button:disabled {

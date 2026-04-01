@@ -1,3 +1,4 @@
+/* ─── Stage atmosphere ─────────────────────────────────────────── */
 .hero-section {
   height: 100vh;
   display: flex;
@@ -7,8 +8,46 @@
   overflow: hidden;
   margin-top: 70px !important;
   padding: 2rem 1rem;
+  /* Stage lighting: warm amber spotlight from above, cool accents below */
+  background:
+    radial-gradient(ellipse 75% 55% at 50% -10%, rgba(232, 137, 12, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 45% at -5% 95%, rgba(255, 20, 147, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 105% 95%, rgba(0, 217, 255, 0.09) 0%, transparent 55%),
+    #060608;
 }
 
+/* Grain texture */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.012) 3px,
+      rgba(255, 255, 255, 0.012) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Edge vignette */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 110% 100% at 50% 50%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Content ──────────────────────────────────────────────────── */
 .hero-content {
   text-align: center;
   z-index: 1;
@@ -23,6 +62,7 @@
   gap: 2.5rem;
 }
 
+/* ─── Logo ─────────────────────────────────────────────────────── */
 .hero-logo-container {
   margin-bottom: 0;
   flex-shrink: 0;
@@ -34,80 +74,122 @@
   max-height: 50vh;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 30px rgba(255, 20, 147, 0.6))
-    drop-shadow(0 0 50px rgba(0, 217, 255, 0.4));
-  animation: glow-pulse 3s ease-in-out infinite;
+  filter:
+    drop-shadow(0 0 20px rgba(232, 137, 12, 0.55))
+    drop-shadow(0 0 45px rgba(255, 20, 147, 0.45))
+    drop-shadow(0 0 70px rgba(0, 217, 255, 0.25));
+  animation: glow-pulse 3.5s ease-in-out infinite;
 }
 
 @keyframes glow-pulse {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 30px rgba(255, 20, 147, 0.6))
-      drop-shadow(0 0 50px rgba(0, 217, 255, 0.4));
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 20px rgba(232, 137, 12, 0.55))
+      drop-shadow(0 0 45px rgba(255, 20, 147, 0.45))
+      drop-shadow(0 0 70px rgba(0, 217, 255, 0.25));
   }
-  50% {
-    filter: drop-shadow(0 0 40px rgba(255, 20, 147, 0.8))
-      drop-shadow(0 0 60px rgba(0, 217, 255, 0.6));
+  40% {
+    filter:
+      drop-shadow(0 0 30px rgba(232, 137, 12, 0.75))
+      drop-shadow(0 0 55px rgba(255, 20, 147, 0.35))
+      drop-shadow(0 0 85px rgba(0, 217, 255, 0.2));
+  }
+  70% {
+    filter:
+      drop-shadow(0 0 18px rgba(232, 137, 12, 0.45))
+      drop-shadow(0 0 50px rgba(255, 20, 147, 0.6))
+      drop-shadow(0 0 90px rgba(0, 217, 255, 0.3));
   }
 }
 
-.hero-title {
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
-  font-weight: 900;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffd700 0%, #ff1493 50%, #00d9ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
-}
-
+/* ─── Subtitle ─────────────────────────────────────────────────── */
 .hero-subtitle {
-  font-size: clamp(1.15rem, 3.5vw, 1.75rem);
-  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.75rem);
+  color: rgba(255, 255, 255, 0.82);
   margin-bottom: 0;
-  font-weight: 300;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.12em;
+  text-shadow:
+    0 0 20px rgba(232, 137, 12, 0.35),
+    0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Big Broadway CTA button */
+/* ─── CTA Button ───────────────────────────────────────────────── */
 .cta-button {
   display: inline-block;
-  padding: 1.25rem 3rem;
-  background: linear-gradient(135deg, #ff1493, #00d9ff);
-  color: white;
+  padding: 1.1rem 3.5rem;
+  background: linear-gradient(135deg, #ff1493 0%, #c2006a 100%);
+  color: #ffffff;
   text-decoration: none;
-  font-size: 1.25rem;
-  font-weight: 800;
-  border-radius: 50px;
-  border: 3px solid #ffd700;
-  box-shadow: 0 10px 40px rgba(255, 20, 147, 0.5),
-    0 0 60px rgba(0, 217, 255, 0.4);
-  transition: all 0.3s ease;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  letter-spacing: 0.15em;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  box-shadow:
+    0 0 30px rgba(255, 20, 147, 0.5),
+    0 0 60px rgba(255, 20, 147, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   position: relative;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 20px 60px rgba(255, 20, 147, 0.7),
-    0 0 100px rgba(0, 217, 255, 0.6);
-  border-color: #ffd700;
+  transform: scale(1.04);
+  border-color: rgba(255, 215, 0, 0.9);
+  box-shadow:
+    0 0 50px rgba(255, 20, 147, 0.7),
+    0 0 90px rgba(255, 20, 147, 0.35),
+    0 0 120px rgba(255, 215, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .cta-button:active {
-  transform: translateY(-4px) scale(1.02);
+  transform: scale(1.01);
 }
 
+/* ─── Scroll hint ──────────────────────────────────────────────── */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 215, 0, 0.45);
+  z-index: 2;
+  animation: scroll-bounce 2.2s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(-50%) translateY(9px);
+    opacity: 0.85;
+  }
+}
+
+/* ─── Reduced motion ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo {
+    animation: none;
+  }
+  .hero-scroll-hint {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+
+/* ─── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero-section {
-    margin-top: 60px;
+    margin-top: 60px !important;
     height: auto;
     min-height: 100vh;
     padding: 3rem 1rem;
@@ -125,8 +207,12 @@
   }
 
   .cta-button {
-    padding: 1.15rem 2.25rem;
-    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.15rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.6rem;
   }
 }
 
@@ -136,20 +222,21 @@
   }
 
   .hero-content {
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .hero-logo {
-    max-width: 400px;
-    max-height: 32vh;
+    max-width: 100%;
+    max-height: 35vh;
   }
 
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.35rem;
+    letter-spacing: 0.08em;
   }
 
   .cta-button {
-    padding: 1rem 2rem;
+    padding: 0.95rem 2rem;
     font-size: 1rem;
   }
 }
