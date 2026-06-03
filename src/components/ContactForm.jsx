@@ -4,11 +4,11 @@ import "./ContactForm.css";
 
 // Mobile wizard option sets (cards drive the SR-only <select>s on mobile)
 const EVENT_TYPE_OPTIONS = [
-  { value: "wedding", label: "Wedding", icon: "💍" },
-  { value: "birthday", label: "Birthday", icon: "🎂" },
-  { value: "corporate", label: "Corporate", icon: "🏢" },
-  { value: "private-party", label: "Private Party", icon: "🎊" },
-  { value: "other", label: "Other", icon: "✨" },
+  { value: "wedding", label: "Wedding" },
+  { value: "birthday", label: "Birthday" },
+  { value: "corporate", label: "Corporate" },
+  { value: "private-party", label: "Private Party" },
+  { value: "other", label: "Other" },
 ];
 
 const GUEST_COUNT_OPTIONS = [
@@ -253,7 +253,6 @@ const ContactForm = () => {
             transition={{ duration: 0.5, type: "spring" }}
           >
             <div className="success-content">
-              <span className="success-icon">🎉</span>
               <h3>Thank You!</h3>
               <p>
                 We'll get back to you within 24 hours to discuss your event.
@@ -331,9 +330,6 @@ const ContactForm = () => {
                     }
                     aria-pressed={formData.eventType === opt.value}
                   >
-                    <span className="card-icon" aria-hidden="true">
-                      {opt.icon}
-                    </span>
                     <span className="card-label">{opt.label}</span>
                   </button>
                 ))}
