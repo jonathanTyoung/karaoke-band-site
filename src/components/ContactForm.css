@@ -532,3 +532,297 @@
     animation: none;
   }
 }
+
+/* ============================================
+   MOBILE STEP WIZARD (grafted Day 3)
+   JSX: src/components/ContactForm.jsx
+   - Wizard chrome (stepper, nav, tap-cards) is hidden by default and
+     enabled only at <=768px. Desktop is restored by the >=769px
+     neutralizer below. The 768/769 split matches the JSX
+     matchMedia("(max-width: 768px)") boundary exactly — no overlap.
+   ============================================ */
+
+/* Default (desktop-safe): chrome hidden, track is a transparent passthrough.
+   Fractional widths between 768–769 fall here and render the stacked form. */
+.mobile-stepper,
+.mobile-nav,
+.mobile-only {
+  display: none;
+}
+
+.steps-viewport {
+  overflow: visible;
+}
+
+.steps-track {
+  display: block;
+}
+
+/* ============================================
+   DESKTOP NEUTRALIZER (>=769px)
+   Restores develop's single-page stacked form. Must be airtight:
+   no wizard chrome, all five sections visible, no carousel transform.
+   ============================================ */
+@media (min-width: 769px) {
+  .steps-viewport {
+    overflow: visible;
+  }
+
+  /* !important defeats Framer's inline transform on .steps-track */
+  .steps-track {
+    display: block;
+    transform: none !important;
+  }
+
+  .step-slide {
+    width: auto;
+    flex-shrink: unset;
+    /* Inherits .form-section spacing; Day-2 stagger props stay intact */
+  }
+
+  /* SR-only select wrappers become normal visible fields on desktop */
+  .event-type-select-wrapper,
+  .guest-count-select-wrapper {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+    pointer-events: auto;
+  }
+
+  /* Tap-cards never show on desktop */
+  .mobile-only {
+    display: none !important;
+  }
+
+  /* Desktop submit button is the visible CTA on desktop */
+  .desktop-submit {
+    display: flex;
+  }
+}
+
+/* ============================================
+   MOBILE WIZARD LAYOUT (<=768px)
+   One step visible at a time; .steps-track is the horizontal carousel
+   (its x is animated by Framer in the JSX).
+   ============================================ */
+@media (max-width: 768px) {
+  /* ── Progress chrome ─────────────────────────────────────── */
+  .mobile-stepper {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-counter-text {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.6rem;
+    text-align: center;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff1493, #ffd700);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+  }
+
+  /* ── Carousel ────────────────────────────────────────────── */
+  .steps-viewport {
+    overflow: hidden;
+  }
+
+  .steps-track {
+    display: flex;
+    will-change: transform;
+  }
+
+  .step-slide {
+    width: 100%;
+    flex-shrink: 0;
+    /* Override .form-section bottom margin so slides don't stack */
+    margin-bottom: 0;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── Tap-cards: shared ───────────────────────────────────── */
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .event-type-cards,
+  .guest-count-cards {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .event-type-card,
+  .guest-count-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 30, 30, 0.7);
+    border: 2px solid var(--border-color);
+    border-radius: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .event-type-card:active,
+  .guest-count-card:active {
+    transform: scale(0.97);
+  }
+
+  .event-type-card.selected,
+  .guest-count-card.selected {
+    background: rgba(255, 20, 147, 0.15);
+    border-color: #ff1493;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.35);
+  }
+
+  /* Event-type cards: 2-up grid, icon over label */
+  .event-type-card {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 120px;
+    min-height: 80px;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .card-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .card-label {
+    font-size: 0.85rem;
+  }
+
+  /* Guest-count cards: 3-up grid */
+  .guest-count-cards {
+    margin-top: 0.5rem;
+    gap: 0.6rem;
+  }
+
+  .guest-count-card {
+    flex: 1 1 calc(33.333% - 0.6rem);
+    min-width: 70px;
+    min-height: 52px;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .guest-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+  }
+
+  /* ── SR-only real <select>s: kept in DOM for Netlify, hidden visually.
+       Cards drive the value; the select still submits its kebab name. ── */
+  .event-type-select-wrapper,
+  .guest-count-select-wrapper {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* ── Mobile nav bar (Back / Next / Submit) ───────────────── */
+  .desktop-submit {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .mobile-nav-btn {
+    flex: 1;
+    min-height: 52px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .mobile-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .mobile-nav-back {
+    background: transparent;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .mobile-nav-back:hover:not(:disabled) {
+    border-color: rgba(255, 215, 0, 0.6);
+    color: #fff;
+  }
+
+  .mobile-nav-next {
+    background: linear-gradient(135deg, #ff1493, #c2006a);
+    border: 2px solid rgba(255, 215, 0, 0.45);
+    color: #fff;
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
+  }
+
+  .mobile-nav-next:hover:not(:disabled) {
+    box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
+    border-color: rgba(255, 215, 0, 0.75);
+  }
+}
+
+/* Narrow phones: drop event-type cards to a tidy 2-up, guests to 2-up */
+@media (max-width: 480px) {
+  .event-type-card {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-height: 72px;
+  }
+
+  .guest-count-card {
+    flex: 1 1 calc(50% - 0.6rem);
+  }
+}
