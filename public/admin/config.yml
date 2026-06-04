@@ -25,3 +25,18 @@ collections:
                   widget: "string",
                   required: false,
                 }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - label: "Testimonials List"
+        name: "testimonials"
+        file: "src/data/testimonials.json"
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "author", widget: "string" }
+              - { label: "Company / Role", name: "company", widget: "string" }
+              - { label: "Quote", name: "text", widget: "text" }
