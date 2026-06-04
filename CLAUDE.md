@@ -3,7 +3,8 @@
 Marketing/booking site for a Nashville live-band-karaoke act. Single-page React app
 with a contact form that emails the owner (Alex) and a Decap CMS at `/admin`.
 
-> This file documents the codebase **as it actually is** (verified 2026-06-03, develop @ `329fd39`).
+> This file documents the codebase **as it actually is** (verified 2026-06-03, after the
+> CMS-wiring sprint that connected About/Services/Testimonials to Decap — see CMS section).
 > Where it corrects an earlier draft or stale assumptions, that's noted inline. Trust the code.
 
 ---
@@ -70,10 +71,10 @@ Each is a self-contained component in `src/components/` with a sibling `.css` fi
 |---|---|---|---|---|
 | Navbar | `Navbar.jsx` (107) | `Navbar.css` (238) | Sticky nav, hamburger toggle, scroll-shadow, anchor links | `useState` open/scrolled + scroll listener. Logo swaps desktop/mobile img. |
 | Hero | `Hero.jsx` (55) | `Hero.css` (155) | Logo, tagline, "Book Your Event" CTA | Framer entrance anims. Image `/hero-logo2.png`. |
-| About | `About.jsx` (71) | `About.css` (103) | Blurb + 3 feature cards | **Features hardcoded in JSX** (icon/title/desc). |
-| Gallery | `Gallery.jsx` (77) | `Gallery.css` (100) | Swiper carousel of images | **Only CMS-connected component** — reads `src/data/gallery.json`. |
-| Services | `Services.jsx` (67) | `Services.css` (80) | 3 service cards | Hardcoded in JSX. |
-| Testimonials | `Testimonials.jsx` (55) | `Testimonials.css` (242) | 3 testimonial cards, 5-star | Hardcoded, real client quotes. No Framer (plain divs). |
+| About | `About.jsx` | `About.css` (103) | Blurb + 3 feature cards | **CMS-driven** — reads `src/data/about.json` (`about_text` + `features[]`). Fallbacks: `?? ''` / `?? []`. |
+| Gallery | `Gallery.jsx` (77) | `Gallery.css` (100) | Swiper carousel of images | **CMS-driven** — reads `src/data/gallery.json`. Current contents are placeholder Unsplash URLs. |
+| Services | `Services.jsx` | `Services.css` (80) | 3 service cards | **CMS-driven** — reads `src/data/services.json` (`services[]`). Fallback `?? []`. |
+| Testimonials | `Testimonials.jsx` | `Testimonials.css` (242) | 3 testimonial cards, 5-star | **CMS-driven** — reads `src/data/testimonials.json` (`testimonials[]` of author/company/text). 5 stars hardcoded (no `rating` field). Fallback `?? []`. No Framer. |
 | ContactForm | `ContactForm.jsx` (585) | `ContactForm.css` (533) | Single-page booking form, 3 sections | See constraints below. |
 | Footer | `Footer.jsx` (43) | `Footer.css` (106) | Contact info + social links | Instagram + YouTube live; Facebook commented out (`Footer.jsx:23`). |
 
@@ -129,48 +130,57 @@ one page with three `.form-section` blocks (Your Information / Event Details / T
 
 ---
 
-## CMS — actual state (mostly NOT wired to the rendered site)
+## CMS — actual state (Gallery, Testimonials, About, Services are wired)
 
 Decap CMS via **git-gateway** backend → commits to `main`. Auth is **Netlify Identity**
 (the `netlify-identity-widget` in `public/index.html` and `public/admin/index.htm` handles
 login + the invite/recovery token redirect to `/admin/`).
 
-**What actually ships and works:**
 - The CMS served in production comes from **`public/admin/`** (CRA copies `public/` → `build/`).
-- **`public/admin/config.yml`** is the *live* config. It defines a single **Gallery**
-  collection editing one file: **`src/data/gallery.json`** (`images[]` of `url`/`alt`/`caption`),
-  media folder `public/images/gallery`.
-- **`Gallery.jsx` is the only component that consumes CMS data** — it imports
-  `src/data/gallery.json`. Current contents are placeholder Unsplash URLs.
+- **`public/admin/config.yml`** is the *live* config (the only one — the dead repo-root
+  `admin/config.yml` was deleted). It defines four **file collections**, each editing one
+  JSON file under `src/data/`.
 
-**What does NOT work / is disconnected (landmines for CMS work):**
-- There are **two divergent configs**. The repo-root **`admin/config.yml`** is *aspirational
-  and NOT served* (only `public/` ships). It defines gallery-folder, settings (general/about/
-  services) and testimonials collections that **nothing reads** and whose target folders
-  (`content/gallery`, `content/testimonials`) don't exist. Editing it has no effect in prod.
-- **`content/settings/*.json` exist but no component imports them.** About, Services,
-  Testimonials, Hero, Footer all **hardcode** their content in JSX. `content/settings/about.json`
-  duplicates About.jsx's text; `content/settings/services.json` is wrong (it's a copy of
-  about.json, not service cards); `general.json` has placeholder `band_name: "Band Name"`
-  and empty social URLs.
-- **`public/admin/index.htm`** has a `.htm` extension (not `.html`). Netlify's default
-  directory index is `index.html`, so `/admin/` may fall through to the SPA redirect instead
-  of loading the CMS — verify the admin actually loads at `/admin/` before relying on it.
+### CMS data flow (what each collection edits → what consumes it)
 
-**Net:** today the CMS edits gallery images only. Wiring About/Services/Testimonials/Footer/
-settings to CMS content is **future work, not done.**
+| Collection | Edits file | Consumed by | Fields |
+|---|---|---|---|
+| Gallery | `src/data/gallery.json` | `Gallery.jsx` | `images[]`: url / alt / caption. Media folder `public/images/gallery`. |
+| Testimonials | `src/data/testimonials.json` | `Testimonials.jsx` | `testimonials[]`: author / company / text |
+| About | `src/data/about.json` | `About.jsx` | `about_text` + `features[]` (icon / title / description) |
+| Services | `src/data/services.json` | `Services.jsx` | `services[]`: icon / title / description |
+
+Every consuming component has an empty-state fallback (`?? []` / `?? ''`), so deleting all
+entries in `/admin` renders nothing rather than crashing.
+
+**How a CMS edit reaches the live site:** Alex edits in `/admin` → **git-gateway commits the
+changed JSON directly to `main`** → Netlify auto-deploys `main` → the new content ships. No
+manual code deploy needed. (Because edits land on `main`, pull `main` before starting new work
+so you don't clobber Alex's content commits.)
+
+**Still hardcoded (not CMS-driven):** Hero, Navbar, Footer.
+
+**Not yet wired:** `content/settings/general.json` exists (real band name, phone, email,
+Instagram + YouTube URLs) but **no component imports it** — candidate for a future general-settings
+sprint. It has no `src/data/` counterpart yet. The stale `content/settings/about.json` and
+`content/settings/services.json` duplicates were deleted once `src/data/` became the source of truth.
+
+**Verify in prod:** **`public/admin/index.htm`** has a `.htm` extension (not `.html`). Netlify's
+default directory index is `index.html`, so confirm `/admin/` actually loads the CMS and doesn't
+fall through to the SPA redirect.
 
 ---
 
 ## Landmines / gotchas
 
 - **Never rename ContactForm field `name` attributes** (Netlify + Zapier). See above.
-- **Two admin configs** — edit `public/admin/config.yml` (the one that ships), not
-  `admin/config.yml`. Reconcile or delete the dead one before extending the CMS.
-- **`content/settings/services.json` holds the wrong data** (a copy of about.json).
+- **Only one admin config now** — edit `public/admin/config.yml` (the one that ships). The dead
+  repo-root `admin/config.yml` was deleted; don't recreate it. New CMS collections are **additive** —
+  never edit/reorder existing collection blocks (Alex's content keys map to them).
+- **`src/data/` is the source of truth** for CMS content — not `content/settings/`. The stale
+  `content/settings/about.json` and `services.json` duplicates were removed; only `general.json`
+  remains there (unwired).
 - **`public/admin/index.htm`** extension — confirm `/admin/` loads.
-- **`gray-matter` and `raw-loader`** are in `package.json` but **imported nowhere** in source —
-  dead dependencies (likely leftovers from an abandoned CMS-rendering approach).
 - **Footer social label bug** (`Footer.jsx:29`): the YouTube link has `aria-label="TikTok"`
   and visible text "Youtube". Facebook link is commented out (`Footer.jsx:23`).
 - **`src/logo.svg`** — unused CRA default leftover.
