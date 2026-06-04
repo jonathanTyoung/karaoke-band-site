@@ -1,20 +1,19 @@
 {
-  "about_text": "We're Nashville's premier karaoke entertainment, bringing unforgettable experiences to weddings, corporate events, birthday parties, and more. With thousands of songs and professional equipment, we guarantee your guests will have the time of their lives.",
-  "features": [
+  "services": [
     {
-      "icon": "🎵",
-      "title": "Huge Song Library",
-      "description": "Thousands of songs across all genres"
+      "icon": "💍",
+      "title": "Weddings",
+      "description": "Make your special day unforgettable with interactive entertainment"
     },
     {
-      "icon": "🎙️",
-      "title": "Pro Equipment",
-      "description": "Crystal clear sound and lighting"
+      "icon": "🎂",
+      "title": "Birthday Parties",
+      "description": "Celebrate in style with karaoke fun for all ages"
     },
     {
-      "icon": "🎉",
-      "title": "Experienced Hosts",
-      "description": "We keep the energy high all night"
+      "icon": "🏢",
+      "title": "Corporate Events",
+      "description": "Team building and entertainment your employees will love"
     }
   ]
 }
