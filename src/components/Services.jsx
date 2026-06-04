@@ -1,25 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import servicesData from '../data/services.json';
 import './Services.css';
 
 const Services = () => {
-  const services = [
-    {
-      icon: '💍',
-      title: 'Weddings',
-      description: 'Make your special day unforgettable with interactive entertainment'
-    },
-    {
-      icon: '🎂',
-      title: 'Birthday Parties',
-      description: 'Celebrate in style with karaoke fun for all ages'
-    },
-    {
-      icon: '🏢',
-      title: 'Corporate Events',
-      description: 'Team building and entertainment your employees will love'
-    }
-  ];
+  const services = servicesData?.services ?? [];
 
   return (
     <section id="services" className="section">

@@ -1,25 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import aboutData from '../data/about.json';
 import './About.css';
 
 const About = () => {
-  const features = [
-    {
-      icon: '🎵',
-      title: 'Huge Song Library',
-      description: 'Thousands of songs across all genres'
-    },
-    {
-      icon: '🎙️',
-      title: 'Pro Equipment',
-      description: 'Crystal clear sound and lighting'
-    },
-    {
-      icon: '🎉',
-      title: 'Experienced Hosts',
-      description: 'We keep the energy high all night'
-    }
-  ];
+  const aboutText = aboutData?.about_text ?? '';
+  const features = aboutData?.features ?? [];
 
   return (
     <section id="about" className="section">
@@ -41,10 +27,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            We're Nashville's premier karaoke entertainment, bringing unforgettable 
-            experiences to weddings, corporate events, birthday parties, and more. 
-            With thousands of songs and professional equipment, we guarantee your 
-            guests will have the time of their lives.
+            {aboutText}
           </motion.p>
           <div className="about-features">
             {features.map((feature, index) => (

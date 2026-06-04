@@ -40,3 +40,34 @@ collections:
               - { label: "Name", name: "author", widget: "string" }
               - { label: "Company / Role", name: "company", widget: "string" }
               - { label: "Quote", name: "text", widget: "text" }
+
+  - name: "about"
+    label: "About"
+    files:
+      - label: "About Section"
+        name: "about"
+        file: "src/data/about.json"
+        fields:
+          - { label: "About Text", name: "about_text", widget: "text" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Icon", name: "icon", widget: "string", hint: "Emoji" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+
+  - name: "services"
+    label: "Services"
+    files:
+      - label: "Services Section"
+        name: "services"
+        file: "src/data/services.json"
+        fields:
+          - label: "Service Cards"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Icon", name: "icon", widget: "string", hint: "Emoji" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
