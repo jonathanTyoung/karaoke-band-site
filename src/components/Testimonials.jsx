@@ -8,6 +8,7 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="section testimonials-section">
       <div className="container">
+        <span className="section-eyebrow">Reviews</span>
         <h2 className="section-title">What People Are Saying</h2>
         <div className="testimonials-grid">
           {items.map((testimonial, index) => (

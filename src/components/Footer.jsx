@@ -13,28 +13,25 @@ const Footer = () => {
 
           <div className="footer-section">
             <h4>Contact</h4>
-            <p>📧 info@nashvillelivebandkaraoke.com</p>
-            <p>📱 (615) 554-6020</p>
+            <p>info@nashvillelivebandkaraoke.com</p>
+            <p>(615) 554-6020</p>
           </div>
 
           <div className="footer-section">
             <h4>Follow Us</h4>
             <div className="social-links">
-              {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                Facebook
-              </a> */}
               <a href="https://www.instagram.com/nashvillelivebandkaraoke/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 Instagram
               </a>
-              <a href="https://www.youtube.com/channel/UCz_99924laysy_Jqhc9X4hg" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                Youtube
+              <a href="https://www.youtube.com/channel/UCz_99924laysy_Jqhc9X4hg" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                YouTube
               </a>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2025 Nashville Live Band Karaoke. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Nashville Live Band Karaoke. All rights reserved.</p>
         </div>
       </div>
     </footer>

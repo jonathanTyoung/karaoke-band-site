@@ -45,7 +45,7 @@ const Hero = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Book Your Event
+          Request a Quote
         </motion.a>
       </div>
     </section>

@@ -12,8 +12,17 @@ const Gallery = () => {
 const images = galleryData.images || galleryData;
 
   return (
-    <section id="gallery" className="section section-alt">
+    <section id="gallery" className="section">
       <div className="container">
+        <motion.span
+          className="section-eyebrow"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          The Experience
+        </motion.span>
         <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 30 }}

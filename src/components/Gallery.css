@@ -1,31 +1,25 @@
-.section-subtitle {
-  text-align: center;
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 3rem;
-  font-weight: 300;
-  letter-spacing: 0.02em;
-}
+/* .section-subtitle primitive lives in App.css (shared) */
 
 .gallery-swiper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 0 4rem;
+  padding: var(--space-8) 0 var(--space-16);
 }
 
 .gallery-slide {
-  border-radius: 15px;
+  border-radius: var(--radius-card);
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease;
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+  border: 1px solid var(--border-color);
   position: relative;
 }
 
 .gallery-slide:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
-  border-color: #ffd700;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.35);
+  border-color: var(--primary-gold);
 }
 
 .gallery-slide img {

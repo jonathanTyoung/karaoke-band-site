@@ -96,7 +96,7 @@ const Navbar = () => {
               className="nav-cta"
               onClick={(e) => scrollToSection(e, "contact")}
             >
-              Book Now
+              Request a Quote
             </a>
           </li>
         </ul>

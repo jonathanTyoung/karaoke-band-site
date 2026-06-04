@@ -5,18 +5,72 @@
 }
 
 :root {
+  /* ── Color identity (NLBK signature — unchanged) ───────────────── */
   --primary-gold: #ffd700;
   --primary-pink: #ff1493;
-  --primary-purple: #00d9ff;
-  --bg-dark: #0a0a0a;
-  --bg-medium: #1a1a1a;
-  --bg-light: #2a2a2a;
+  --primary-purple: #00d9ff; /* cyan — the primary accent */
+  --accent: #00d9ff; /* alias for new code; same cyan */
+  --accent-hover: #33e1ff;
+  /* Backdrop — warm charcoal (richer than flat black), alternating rhythm */
+  --bg-base: #100e0e; /* sections (base) */
+  --bg-alt: #181615; /* sections (alt) — perceptibly lifted */
+  --bg-card: #1f1c1b; /* cards above sections */
+  --bg-elevated: #282422; /* inputs, hover states */
+  /* Legacy aliases — kept so existing var() refs pick up the new tones */
+  --bg-dark: var(--bg-base);
+  --bg-medium: var(--bg-alt);
+  --bg-light: var(--bg-elevated);
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.9);
   --text-muted: rgba(255, 255, 255, 0.6);
   --accent-glow: rgba(255, 215, 0, 0.3);
   --card-bg: rgba(255, 255, 255, 0.05);
   --border-color: rgba(255, 215, 0, 0.2);
+  /* Signature gradients — keep using these instead of hardcoding hex */
+  --gradient-cta: linear-gradient(135deg, #ff1493, #00d9ff);
+  --gradient-title: linear-gradient(135deg, #ffd700 0%, #ff1493 50%, #00d9ff 100%);
+
+  /* ── Typography (Anton display + Inter body) ───────────────────── */
+  --font-display: "Anton", "Arial Narrow", sans-serif; /* all-caps headlines */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Helvetica Neue", sans-serif;
+
+  --text-eyebrow: 0.8125rem; /* 13px uppercase label */
+  --text-display: clamp(2.75rem, 7vw, 5.5rem);
+  --text-h2: clamp(2rem, 4.5vw, 3.25rem);
+  --text-h3: 1.375rem;
+  --text-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+
+  --tracking-display: -0.01em;
+  --tracking-eyebrow: 0.18em; /* wide letterspaced eyebrows */
+  --leading-body: 1.6;
+
+  /* ── Spacing (8px base) ────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --section-y: clamp(4rem, 8vw, 7rem); /* section vertical padding */
+  --container: 1200px;
+
+  /* ── Radius (sharper structure; CTA pill preserved) ────────────── */
+  --radius-none: 0;
+  --radius-sm: 2px; /* default workhorse */
+  --radius-card: 4px; /* cards, inputs */
+  --radius-pill: 50px; /* signature gradient CTA — keep rounded */
+
+  /* ── Motion & elevation ────────────────────────────────────────── */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 220ms;
+  --dur-fast: 150ms;
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
 html {
@@ -24,33 +78,83 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0a0a0a;
+  background: var(--bg-base);
   color: var(--text-primary);
   overflow-x: hidden;
 }
 
 .App {
   min-height: 100vh;
-  background: #0a0a0a;
+  background: var(--bg-base);
 }
 
-/* Clean solid backgrounds */
-.section,
-.section-alt,
-section,
-#hero,
-#about,
-#gallery,
-#services,
-#contact,
-.hero-section {
-  background: #0a0a0a !important;
+/* ── Shared section primitives (single source of truth) ─────────── */
+/* Alternating backdrop rhythm: .section = base tone, .section-alt = lifted.
+   .section-alt is declared after .section so it wins for elements with both. */
+.section {
+  padding: var(--section-y) 2rem;
   position: relative;
+  background: var(--bg-base);
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Uppercase letter-spaced eyebrow above section headlines */
+.section-eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+/* Signature gradient headline, now in Anton (weight 400 — its only weight) */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-h2);
+  line-height: 1.04;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+  letter-spacing: var(--tracking-display);
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.25);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 56ch;
+  margin: 0 auto var(--space-16);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: clamp(3rem, 12vw, 4rem) 1.5rem;
+  }
 }
 
 ::-webkit-scrollbar {

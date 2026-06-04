@@ -24,9 +24,10 @@ function App() {
         style={{ paddingBottom: "6rem" }}
       >
         <div className="container">
+          <span className="section-eyebrow">Get Started</span>
           <h2 className="section-title">Book Your Event</h2>
           <p className="section-subtitle">
-            Fill out the form below and we'll get back to you within 24 hours
+            Tell us about your event and we'll get back to you within 24 hours
           </p>
           <ContactForm />
         </div>

@@ -8,9 +8,18 @@ const About = () => {
   const features = aboutData?.features ?? [];
 
   return (
-    <section id="about" className="section">
+    <section id="about" className="section section-alt">
       <div className="container">
-        <motion.h2 
+        <motion.span
+          className="section-eyebrow"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Who We Are
+        </motion.span>
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +49,6 @@ const About = () => {
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <span className="feature-icon">{feature.icon}</span>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
               </motion.div>

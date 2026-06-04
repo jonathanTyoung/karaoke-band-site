@@ -7,9 +7,18 @@ const Services = () => {
   const services = servicesData?.services ?? [];
 
   return (
-    <section id="services" className="section">
+    <section id="services" className="section section-alt">
       <div className="container">
-        <motion.h2 
+        <motion.span
+          className="section-eyebrow"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          What We Do
+        </motion.span>
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +48,6 @@ const Services = () => {
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               whileHover={{ scale: 1.05, y: -10 }}
             >
-              <span className="service-icon">{service.icon}</span>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
             </motion.div>
