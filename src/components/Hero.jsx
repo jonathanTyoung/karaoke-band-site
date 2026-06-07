@@ -1,8 +1,12 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import "./Hero.css";
 
 const Hero = () => {
+  // Subtle scroll parallax: lift the hero content as the user scrolls past it.
+  const { scrollY } = useScroll();
+  const parallaxY = useTransform(scrollY, [0, 400], [0, -70]);
+
   const scrollToContact = (e) => {
     e.preventDefault();
     const element = document.getElementById("contact");
@@ -13,7 +17,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero-section">
-      <div className="hero-content">
+      <motion.div className="hero-content" style={{ y: parallaxY }}>
         <motion.div
           className="hero-logo-container"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -47,7 +51,7 @@ const Hero = () => {
         >
           Request a Quote
         </motion.a>
-      </div>
+      </motion.div>
     </section>
   );
 };

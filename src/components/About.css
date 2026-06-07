@@ -26,6 +26,7 @@
   background: rgba(20, 20, 20, 0.5);
   border-radius: var(--radius-card);
   border: 1px solid var(--border-color);
+  border-top: 3px solid var(--accent);
   transition: transform var(--dur) var(--ease),
     border-color var(--dur) var(--ease), background var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease);

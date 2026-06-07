@@ -9,6 +9,46 @@
   padding: 2rem 1rem;
 }
 
+/* Atmospheric radial glow that slowly breathes behind the logo.
+   Brand pink (#ff2d9b) core fading through cyan (#00d9ff) to transparent,
+   kept very low opacity so it reads as ambience, not a spotlight. */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(900px, 90vw);
+  height: min(900px, 90vw);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 45, 155, 0.12) 0%,
+    rgba(0, 217, 255, 0.1) 48%,
+    transparent 78%
+  );
+  z-index: 0;
+  pointer-events: none;
+  animation: hero-glow-pulse 9s ease-in-out infinite;
+}
+
+@keyframes hero-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before {
+    animation: none;
+  }
+}
+
 .hero-content {
   text-align: center;
   z-index: 1;

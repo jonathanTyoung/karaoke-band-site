@@ -3,17 +3,20 @@
     {
       "icon": "💍",
       "title": "Weddings",
-      "description": "Make your special day unforgettable with interactive entertainment"
+      "description": "Make your special day unforgettable with interactive entertainment",
+      "image": "/images/services/services-wedding.jpg"
     },
     {
       "icon": "🎂",
       "title": "Birthday Parties",
-      "description": "Celebrate in style with karaoke fun for all ages"
+      "description": "Celebrate in style with karaoke fun for all ages",
+      "image": "/images/services/services-karaoke-party.jpg"
     },
     {
       "icon": "🏢",
       "title": "Corporate Events",
-      "description": "Team building and entertainment your employees will love"
+      "description": "Team building and entertainment your employees will love",
+      "image": "/images/services/services-corporate.jpg"
     }
   ]
 }

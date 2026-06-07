@@ -45,6 +45,73 @@
   z-index: 1;
 }
 
+/* Image-backed variant — photo with dark gradient overlay and
+   text anchored to the bottom-left. Falls back to the dark card
+   above when a service has no `image`. */
+.service-card--image {
+  min-height: 320px;
+  padding: 0;
+  text-align: left;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-clip: padding-box;
+  background-color: rgba(20, 20, 20, 0.5);
+  backdrop-filter: none;
+  overflow: hidden;
+}
+
+.service-card--image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    to top,
+    rgba(16, 14, 14, 0.92) 0%,
+    rgba(16, 14, 14, 0.4) 60%,
+    transparent 100%
+  );
+  opacity: 1;
+  transition: opacity var(--dur) var(--ease);
+}
+
+/* Photo cards stay completely static on hover (no scale/lift/zoom) — hover
+   feedback is only a subtle brightening of the photo via the overlay below.
+   Re-assert background-size/position because the base `.service-card:hover`
+   `background:` shorthand resets them, which would snap the photo to its
+   intrinsic size and read as a zoom. */
+.service-card--image:hover {
+  transform: none;
+  background-size: cover;
+  background-position: center center;
+  background-clip: padding-box;
+}
+
+.service-card--image:hover::before {
+  opacity: 0.8;
+}
+
+.service-card--image p {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 3.25rem;
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.service-card--image h3 {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  margin: 0;
+  color: var(--primary-gold);
+}
+
 @media (max-width: 768px) {
   .services-grid {
     gap: var(--space-6);
@@ -52,5 +119,9 @@
 
   .service-card {
     padding: var(--space-8) var(--space-6);
+  }
+
+  .service-card--image {
+    padding: 0;
   }
 }
