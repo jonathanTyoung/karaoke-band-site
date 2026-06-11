@@ -18,6 +18,10 @@ const Hero = () => {
   return (
     <section id="hero" className="hero-section">
       <motion.div className="hero-content" style={{ y: parallaxY }}>
+        <h1 className="sr-only">
+          Nashville Live Band Karaoke — Premium Live Band Karaoke for Weddings,
+          Birthdays &amp; Corporate Events
+        </h1>
         <motion.div
           className="hero-logo-container"
           initial={{ opacity: 0, scale: 0.8 }}

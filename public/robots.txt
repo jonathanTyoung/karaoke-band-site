@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /thank-you.html
 
-Sitemap: https://kaleidoscopic-croissant-847552.netlify.app/sitemap.xml
+Sitemap: https://nashvillelivebandkaraoke.com/sitemap.xml

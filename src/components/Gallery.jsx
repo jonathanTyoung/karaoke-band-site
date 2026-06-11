@@ -69,7 +69,12 @@ const images = galleryData.images || galleryData;
             {images.map((image, index) => (
               <SwiperSlide key={index}>
                 <div className="gallery-slide">
-                  <img src={image.url} alt={image.alt} />
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   {image.caption && (
                     <p className="image-caption">{image.caption}</p>
                   )}
