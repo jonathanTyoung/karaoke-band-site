@@ -25,7 +25,7 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Perfect For Any Event
+          Nashville Live Band Karaoke for Any Event
         </motion.h2>
         <motion.p 
           className="section-subtitle"
@@ -34,7 +34,7 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          We bring the party to you
+          We bring the live karaoke band to you
         </motion.p>
 
         <div className="services-grid">

@@ -2,27 +2,28 @@
   "images": [
     {
       "url": "/images/gallery/img_5065.jpg",
-      "alt": "Live music performance",
+      "alt": "Nashville Live Band Karaoke guitarist performing at a private party",
       "caption": ""
     },
     {
       "url": "/images/gallery/img_5066-2.jpg",
-      "alt": "Concert crowd",
+      "alt": "Crowd singing and dancing at a Nashville live band karaoke event",
       "caption": ""
     },
     {
       "url": "/images/gallery/img_5063.jpg",
-      "alt": "Event atmosphere",
+      "alt": "Live karaoke band performer on stage under purple stage lighting in Nashville",
       "caption": ""
     },
     {
       "url": "/images/gallery/img_8847-3.jpg",
-      "alt": "Stage performance",
+      "alt": "Nashville Live Band Karaoke group photo with band and guests at a private party",
       "caption": ""
     },
     {
-      "alt": "Event Party",
-      "url": "/images/gallery/karaokefriends.jpg"
+      "url": "/images/gallery/karaokefriends.jpg",
+      "alt": "Bride and groom dancing with guests at a Nashville wedding karaoke reception",
+      "caption": ""
     }
   ]
 }

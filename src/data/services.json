@@ -3,19 +3,19 @@
     {
       "icon": "💍",
       "title": "Weddings",
-      "description": "Make your special day unforgettable with interactive entertainment",
+      "description": "Make your Nashville wedding unforgettable with live band karaoke entertainment. Guests sing their favorite songs backed by professional musicians — the ultimate wedding reception experience.",
       "image": "/images/services/services-wedding.jpg"
     },
     {
       "icon": "🎂",
       "title": "Birthday Parties",
-      "description": "Celebrate in style with karaoke fun for all ages",
+      "description": "Throw the best birthday party in Nashville with a live karaoke band. Interactive, high-energy entertainment that gets everyone on the mic and on the dance floor.",
       "image": "/images/services/services-karaoke-party.jpg"
     },
     {
       "icon": "🏢",
       "title": "Corporate Events",
-      "description": "Team building and entertainment your employees will love",
+      "description": "Elevate your Nashville corporate event with live band karaoke. A unique entertainment experience that breaks the ice, builds team energy, and leaves a lasting impression.",
       "image": "/images/services/services-corporate.jpg"
     }
   ]

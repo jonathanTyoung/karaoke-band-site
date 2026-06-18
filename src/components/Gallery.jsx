@@ -30,7 +30,7 @@ const images = galleryData.images || galleryData;
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Recent Events
+          Nashville Live Band Karaoke in Action
         </motion.h2>
         <motion.p
           className="section-subtitle"
@@ -39,7 +39,7 @@ const images = galleryData.images || galleryData;
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          See us in action at recent gigs
+          See us performing at weddings, parties, and events across Nashville
         </motion.p>
 
         <motion.div
