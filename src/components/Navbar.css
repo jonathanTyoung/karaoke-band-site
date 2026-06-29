@@ -140,8 +140,6 @@
   border-radius: var(--radius-sm);
   text-decoration: none;
   font-weight: 700;
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
   border: 2px solid var(--primary-gold);
   box-shadow: 0 5px 20px color-mix(in srgb, var(--primary-pink) 40%, transparent),
     0 0 24px color-mix(in srgb, var(--accent) 25%, transparent);
@@ -149,13 +147,6 @@
   font-size: var(--text-sm);
   letter-spacing: 0.05em;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.nav-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px color-mix(in srgb, var(--primary-pink) 60%, transparent),
-    0 0 40px color-mix(in srgb, var(--accent) 40%, transparent);
-  border-color: var(--primary-gold);
 }
 
 .nav-toggle {

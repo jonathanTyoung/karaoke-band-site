@@ -146,19 +146,11 @@
   border: 3px solid var(--primary-gold);
   box-shadow: 0 10px 40px rgba(255, 20, 147, 0.5),
     0 0 60px rgba(0, 217, 255, 0.4);
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   position: relative;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.cta-button:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 20px 60px rgba(255, 20, 147, 0.7),
-    0 0 100px rgba(0, 217, 255, 0.6);
-  border-color: #ffd700;
 }
 
 .cta-button:active {

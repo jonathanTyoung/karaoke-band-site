@@ -282,7 +282,6 @@
   font-size: 1.1rem;
   font-weight: 800;
   cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 10px 40px rgba(255, 20, 147, 0.5),
     0 0 60px rgba(0, 217, 255, 0.3);
   display: flex;
@@ -469,12 +468,6 @@
     padding: 1.15rem 2rem;
     font-size: 1.15rem;
     margin-top: 1.25rem;
-  }
-
-  .submit-button:hover:not(:disabled) {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(255, 20, 147, 0.7),
-      0 0 80px rgba(0, 217, 255, 0.5);
   }
 
   .success-message {

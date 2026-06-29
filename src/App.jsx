@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -51,28 +52,78 @@ function App() {
         <div className={`container${isDesktop ? " contact-grid" : ""}`}>
           {isDesktop ? (
             <div className="contact-intro">
-              <span className="section-eyebrow">Get Started</span>
-              <h2 className="section-title">Ready to Book?</h2>
-              <p className="section-subtitle">
+              <motion.span
+                className="section-eyebrow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                Get Started
+              </motion.span>
+              <motion.h2
+                className="section-title"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                Ready to Book?
+              </motion.h2>
+              <motion.p
+                className="section-subtitle"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 Tell us a little about your event and we'll follow up with
                 availability, format options, and a quote for your Nashville
                 date.
-              </p>
-              <div className="contact-intro-details">
+              </motion.p>
+              <motion.div
+                className="contact-intro-details"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 <a href="mailto:info@nashvillelivebandkaraoke.com">
                   info@nashvillelivebandkaraoke.com
                 </a>
                 <a href="tel:+16155546020">(615) 554-6020</a>
-              </div>
+              </motion.div>
             </div>
           ) : (
             <>
-              <span className="section-eyebrow">Get Started</span>
-              <h2 className="section-title">Book Your Event</h2>
-              <p className="section-subtitle">
+              <motion.span
+                className="section-eyebrow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                Get Started
+              </motion.span>
+              <motion.h2
+                className="section-title"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                Book Your Event
+              </motion.h2>
+              <motion.p
+                className="section-subtitle"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 Tell us about your event and we'll get back to you within 24
                 hours
-              </p>
+              </motion.p>
             </>
           )}
           <ContactForm />

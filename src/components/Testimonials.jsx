@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import testimonialsData from "../data/testimonials.json";
 import "./Testimonials.css";
 
@@ -8,11 +9,34 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="section testimonials-section">
       <div className="container">
-        <span className="section-eyebrow">Reviews</span>
-        <h2 className="section-title">What People Are Saying</h2>
+        <motion.span
+          className="section-eyebrow"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Reviews
+        </motion.span>
+        <motion.h2
+          className="section-title"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          What People Are Saying
+        </motion.h2>
         <div className="testimonials-grid">
           {items.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
+            <motion.div
+              key={index}
+              className="testimonial-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+            >
               <div className="star-rating">
                 <span className="star">★</span>
                 <span className="star">★</span>
@@ -28,7 +52,7 @@ const Testimonials = () => {
                   <div className="author-company">{testimonial.company}</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -126,7 +126,9 @@ body {
   z-index: 1;
 }
 
-/* Uppercase letter-spaced eyebrow above section headlines */
+/* Uppercase letter-spaced eyebrow above section headlines.
+   Use .section-eyebrow or .eyebrow — both map to the same utility. */
+.eyebrow,
 .section-eyebrow {
   display: block;
   text-align: center;
@@ -162,6 +164,25 @@ body {
   color: var(--text-secondary);
   max-width: 56ch;
   margin: 0 auto var(--space-16);
+}
+
+/* Shared gradient CTA hover signature (hero, navbar, contact submit) */
+.cta-button,
+.nav-cta,
+.submit-button {
+  transition: transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+}
+
+.cta-button:hover,
+.nav-cta:hover,
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--primary-pink) 60%, transparent),
+    0 0 40px color-mix(in srgb, var(--accent) 40%, transparent);
+  border-color: var(--primary-gold);
 }
 
 @media (max-width: 768px) {

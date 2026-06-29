@@ -242,7 +242,13 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-form-wrapper">
+    <motion.div
+      className="contact-form-wrapper"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+    >
       <AnimatePresence>
         {submitSuccess && (
           <motion.div
@@ -827,7 +833,7 @@ const ContactForm = () => {
           <span className="required">*</span> Required fields
         </p>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
