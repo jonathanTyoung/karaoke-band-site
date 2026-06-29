@@ -22,15 +22,16 @@
 
 .service-card:hover {
   background: rgba(30, 30, 30, 0.7);
-  border-color: var(--primary-gold);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px color-mix(in srgb, var(--accent) 18%, transparent);
   transform: translateY(-8px);
 }
 
 .service-card h3 {
   font-size: var(--text-h3);
   font-weight: 800;
-  color: var(--primary-gold);
+  color: var(--text-primary);
   margin-bottom: var(--space-3);
   letter-spacing: 0.02em;
   position: relative;
@@ -109,7 +110,7 @@
   right: 1.5rem;
   bottom: 1.5rem;
   margin: 0;
-  color: var(--primary-gold);
+  color: var(--text-primary);
 }
 
 @media (max-width: 768px) {

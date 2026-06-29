@@ -70,7 +70,7 @@
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 1.5rem;
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  border: 1px solid var(--border-color);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   max-width: 100%;
@@ -94,11 +94,11 @@
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1.25rem;
-  color: var(--primary-gold);
+  color: var(--accent);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 35%, transparent);
   letter-spacing: 0.02em;
 }
 
@@ -138,8 +138,8 @@
 }
 
 .form-group label.focused {
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  color: var(--accent);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 .required {
@@ -181,8 +181,9 @@
 .form-group select:focus,
 .form-group textarea:focus {
   background: rgba(40, 40, 40, 0.9);
-  border-color: var(--primary-gold);
-  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1), 0 0 30px rgba(255, 215, 0, 0.3);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent),
+    0 0 30px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 /* ============================================
@@ -278,7 +279,7 @@
   background: var(--gradient-cta);
   color: white;
   border: 3px solid var(--primary-gold);
-  border-radius: 15px;
+  border-radius: var(--radius-sm);
   font-size: 1.1rem;
   font-weight: 800;
   cursor: pointer;
@@ -428,7 +429,7 @@
 
   .form-section:hover {
     background: rgba(40, 40, 40, 0.6);
-    border-color: rgba(255, 215, 0, 0.4);
+    border-color: color-mix(in srgb, var(--accent) 35%, transparent);
     transform: translateY(-2px);
   }
 
@@ -904,5 +905,20 @@
     );
     border-color: var(--primary-gold);
     border-radius: var(--radius-sm);
+  }
+
+  /* Softer desktop form cards — mobile wizard step styling untouched */
+  .form-section {
+    border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+    background: rgba(30, 30, 30, 0.35);
+  }
+
+  .form-section:hover {
+    border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+    background: rgba(40, 40, 40, 0.5);
+  }
+
+  .premium-contact-form {
+    border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
   }
 }

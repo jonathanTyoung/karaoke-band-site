@@ -83,7 +83,7 @@
   left: var(--space-6);
   font-size: 6rem;
   font-weight: 900;
-  color: rgba(255, 215, 0, 0.15);
+  color: color-mix(in srgb, var(--accent) 12%, transparent);
   line-height: 1;
   font-family: Georgia, serif;
   pointer-events: none;
@@ -113,7 +113,7 @@
 .author-name {
   font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--primary-gold);
+  color: var(--text-primary);
   letter-spacing: 0.5px;
 }
 

@@ -1,8 +1,8 @@
 .footer {
   padding: 4rem 2rem 2rem;
-  border-top: 3px solid rgba(255, 215, 0, 0.4);
+  border-top: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
   position: relative;
-  box-shadow: 0 -10px 30px rgba(255, 215, 0, 0.1);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .footer-content {
@@ -18,19 +18,17 @@
   font-family: var(--font-display);
   font-size: var(--text-h3);
   text-transform: uppercase;
-  color: var(--primary-gold);
+  color: var(--text-primary);
   margin-bottom: var(--space-4);
   font-weight: 400;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
   letter-spacing: 0.02em;
 }
 
 .footer-section h4 {
   font-size: 1.25rem;
-  color: #ffd700;
+  color: var(--accent);
   margin-bottom: 1rem;
   font-weight: 600;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .footer-section p {
@@ -60,14 +58,14 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #ffd700, #ff1493);
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, var(--accent), var(--primary-pink));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 60%, transparent);
+  transition: width var(--dur) var(--ease);
 }
 
 .social-links a:hover {
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  color: var(--accent);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 45%, transparent);
   transform: translateX(8px);
 }
 
@@ -78,7 +76,7 @@
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 215, 0, 0.15);
+  border-top: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
   position: relative;
   z-index: 1;
 }

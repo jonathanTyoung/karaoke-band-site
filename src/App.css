@@ -25,7 +25,7 @@
   --text-muted: rgba(255, 255, 255, 0.6);
   --accent-glow: rgba(255, 215, 0, 0.3);
   --card-bg: rgba(255, 255, 255, 0.05);
-  --border-color: rgba(255, 215, 0, 0.2);
+  --border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   /* Signature gradients — keep using these instead of hardcoding hex */
   --gradient-cta: linear-gradient(135deg, #ff1493, #00d9ff);
   --gradient-title: linear-gradient(135deg, #ffd700 0%, #ff1493 50%, #00d9ff 100%);
@@ -64,7 +64,7 @@
   --radius-none: 0;
   --radius-sm: 2px; /* default workhorse */
   --radius-card: 4px; /* cards, inputs */
-  --radius-pill: 50px; /* signature gradient CTA — keep rounded */
+  --radius-pill: 50px; /* legacy — primary CTAs use --radius-sm */
 
   /* ── Motion & elevation ────────────────────────────────────────── */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -141,7 +141,8 @@ body {
   margin-bottom: var(--space-3);
 }
 
-/* Signature gradient headline, now in Anton (weight 400 — its only weight) */
+/* Signature gradient headline — .section-title / .section-headline */
+.section-headline,
 .section-title {
   font-family: var(--font-display);
   font-weight: 400;
@@ -151,7 +152,12 @@ body {
   text-transform: uppercase;
   margin-bottom: var(--space-4);
   letter-spacing: var(--tracking-display);
-  background: var(--gradient-title);
+  background: linear-gradient(
+    90deg,
+    var(--primary-gold) 0%,
+    var(--primary-pink) 50%,
+    var(--accent) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
