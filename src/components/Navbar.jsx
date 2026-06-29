@@ -34,14 +34,17 @@ const Navbar = () => {
           href="#hero"
           className="nav-logo"
           onClick={(e) => scrollToSection(e, "hero")}
-          aria-label="Nashville Live Band Karaoke"
         >
-          <span className="nav-logo-wordmark">
-            <span className="nav-logo-line">Nashville Live</span>
-            <span className="nav-logo-line nav-logo-line-accent">
-              Band Karaoke
-            </span>
-          </span>
+          <img
+            src="/navbar-logo4.png"
+            alt="Nashville Live Band Karaoke"
+            className="nav-logo-img"
+          />
+          <img
+            src="/apple-touch-icon.png"
+            alt="Nashville Live Band Karaoke"
+            className="nav-logo-mobile"
+          />
         </a>
 
         <button
