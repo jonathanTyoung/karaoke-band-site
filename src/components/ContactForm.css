@@ -832,3 +832,84 @@
     flex: 1 1 calc(50% - 0.6rem);
   }
 }
+
+/* ============================================
+   DESKTOP TWO-COLUMN "READY TO BOOK?" LAYOUT (>=769px)
+   CSS-Overhaul Day 2, Task 4. Left column = intro copy + contact
+   details (rendered only on desktop from App.jsx). Right column =
+   the existing ContactForm. Scoped entirely to >=769px so the mobile
+   5-step wizard (steps-track, tap-cards, stepper, validation) is
+   completely unaffected. No form field name/id touched.
+   ============================================ */
+@media (min-width: 769px) {
+  /* .container also carries .contact-grid on desktop only */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  /* ── Left column: copy, left-aligned (overrides centered section primitives) ── */
+  .contact-intro {
+    text-align: left;
+    padding-top: 0.25rem;
+  }
+
+  .contact-intro .section-eyebrow {
+    text-align: left;
+    margin-bottom: var(--space-3);
+  }
+
+  .contact-intro .section-title {
+    text-align: left;
+    margin-bottom: var(--space-4);
+  }
+
+  .contact-intro .section-subtitle {
+    text-align: left;
+    max-width: 42ch;
+    margin: 0 0 var(--space-8);
+  }
+
+  .contact-intro-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .contact-intro-details a {
+    width: fit-content;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: var(--text-lg);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color var(--dur) var(--ease);
+  }
+
+  .contact-intro-details a:hover {
+    color: var(--accent);
+  }
+
+  /* ── Right column: form fills the column (drop the centered 900px cap) ── */
+  .contact-grid .contact-form-wrapper {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Desktop submit: pink→gold gradient, full width, sharp corners ── */
+  .contact-grid .desktop-submit {
+    width: 100%;
+    background: linear-gradient(
+      135deg,
+      var(--primary-pink),
+      var(--primary-gold)
+    );
+    border-color: var(--primary-gold);
+    border-radius: var(--radius-sm);
+  }
+}
