@@ -35,24 +35,20 @@ const Hero = () => {
           />
         </motion.div>
 
-        <motion.p
-          className="hero-headline"
+        <motion.div
+          className="hero-copy"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Sing With A<br />
-          <span className="headline-accent">Live Band.</span>
-        </motion.p>
-
-        <motion.p
-          className="hero-subtitle"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          We bring the band, you bring the voice!
-        </motion.p>
+          <p className="hero-headline">
+            For one night, you&apos;re the headliner.
+          </p>
+          <p className="hero-subline">
+            Professional musicians back you up while you sing your favorite
+            songs — weddings, parties, and corporate events across Nashville.
+          </p>
+        </motion.div>
         <motion.a
           href="#contact"
           className="cta-button"
