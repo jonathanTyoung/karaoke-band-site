@@ -36,10 +36,20 @@ const Hero = () => {
         </motion.div>
 
         <motion.p
+          className="hero-headline"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+        >
+          Sing With A<br />
+          <span className="headline-accent">Live Band.</span>
+        </motion.p>
+
+        <motion.p
           className="hero-subtitle"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           We bring the band, you bring the voice!
         </motion.p>
