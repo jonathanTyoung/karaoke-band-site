@@ -172,22 +172,24 @@ body {
   margin: 0 auto var(--space-16);
 }
 
-/* Shared gradient CTA hover signature (hero, navbar, contact submit) */
+/* Shared primary CTA styling (hero, navbar, contact submit) */
 .cta-button,
 .nav-cta,
 .submit-button {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32);
   transition: transform var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease),
     border-color var(--dur) var(--ease),
-    opacity var(--dur) var(--ease);
+    opacity var(--dur) var(--ease),
+    filter var(--dur) var(--ease);
 }
 
 .cta-button:hover,
 .nav-cta:hover,
 .submit-button:hover:not(:disabled) {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px color-mix(in srgb, var(--primary-pink) 60%, transparent),
-    0 0 40px color-mix(in srgb, var(--accent) 40%, transparent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.42);
+  filter: brightness(1.06);
   border-color: var(--primary-gold);
 }
 

@@ -107,23 +107,6 @@
   filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
 }
 
-/* Two-color split headline: "SING WITH A" (white) / "LIVE BAND." (cyan) */
-.hero-headline {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5.5vw, 3.75rem);
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1.02;
-  letter-spacing: var(--tracking-display);
-  color: var(--text-primary);
-  margin: 0;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
-}
-
-.headline-accent {
-  color: var(--accent);
-}
-
 .hero-subtitle {
   font-family: var(--font-body);
   font-size: clamp(1.15rem, 3.5vw, 1.75rem);
@@ -145,8 +128,6 @@
   font-weight: 700;
   border-radius: var(--radius-sm);
   border: 3px solid var(--primary-gold);
-  box-shadow: 0 10px 40px rgba(255, 20, 147, 0.5),
-    0 0 60px rgba(0, 217, 255, 0.4);
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -155,7 +136,8 @@
 }
 
 .cta-button:active {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(0);
+  filter: brightness(1);
 }
 
 /* Mobile Optimization - Larger Logo */

@@ -49,39 +49,6 @@
   );
 }
 
-/* Anton text wordmark — preview option (replaces PNG logo in JSX) */
-.nav-logo-wordmark {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 45px;
-  line-height: 1.02;
-  font-family: var(--font-display);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 25%, transparent);
-}
-
-.nav-logo-line {
-  display: block;
-  font-size: clamp(0.8125rem, 1.1vw, 1.0625rem);
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-
-.nav-logo-line-accent {
-  color: var(--accent);
-}
-
-.navbar.scrolled .nav-logo-wordmark {
-  min-height: 38px;
-}
-
-.navbar.scrolled .nav-logo-line {
-  font-size: clamp(0.75rem, 1vw, 0.9375rem);
-}
-
 .nav-logo-mobile {
   display: none;
 }
@@ -141,8 +108,6 @@
   text-decoration: none;
   font-weight: 700;
   border: 2px solid var(--primary-gold);
-  box-shadow: 0 5px 20px color-mix(in srgb, var(--primary-pink) 40%, transparent),
-    0 0 24px color-mix(in srgb, var(--accent) 25%, transparent);
   text-transform: uppercase;
   font-size: var(--text-sm);
   letter-spacing: 0.05em;
@@ -188,23 +153,6 @@
 
 /* Tablet adjustments */
 @media (max-width: 1024px) {
-  .nav-logo-wordmark {
-    min-height: 40px;
-  }
-
-  .nav-logo-line {
-    font-size: clamp(0.75rem, 1.4vw, 0.9375rem);
-    letter-spacing: 0.05em;
-  }
-
-  .navbar.scrolled .nav-logo-wordmark {
-    min-height: 35px;
-  }
-
-  .navbar.scrolled .nav-logo-line {
-    font-size: clamp(0.6875rem, 1.2vw, 0.875rem);
-  }
-
   .nav-logo-img {
     height: 40px;
   }
@@ -222,15 +170,6 @@
 
   .nav-container {
     padding: 0.75rem 1.5rem;
-  }
-
-  .nav-logo-wordmark {
-    min-height: 40px;
-    letter-spacing: 0.04em;
-  }
-
-  .nav-logo-line {
-    font-size: clamp(0.6875rem, 2.8vw, 0.8125rem);
   }
 
   /* Hide image logo on mobile */
@@ -284,11 +223,6 @@
     padding: 0.75rem 1rem;
   }
 
-  .nav-logo-line {
-    font-size: 0.6875rem;
-    letter-spacing: 0.03em;
-  }
-
   .nav-logo-mobile {
     height: 35px;
   }
@@ -298,11 +232,6 @@
 @media (max-width: 360px) {
   .nav-container {
     padding: 0.5rem 0.75rem;
-  }
-
-  .nav-logo-line {
-    font-size: 0.625rem;
-    letter-spacing: 0.02em;
   }
 
   .nav-logo-mobile {
