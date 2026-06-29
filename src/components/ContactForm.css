@@ -278,7 +278,6 @@
   padding: 1.125rem 1.5rem;
   background: var(--gradient-cta);
   color: white;
-  border: 3px solid var(--primary-gold);
   border-radius: var(--radius-sm);
   font-size: 1.1rem;
   font-weight: 800;
@@ -901,7 +900,6 @@
       var(--primary-pink),
       var(--primary-gold)
     );
-    border-color: var(--primary-gold);
     border-radius: var(--radius-sm);
   }
 

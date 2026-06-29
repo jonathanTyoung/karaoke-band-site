@@ -147,7 +147,6 @@
   font-size: var(--text-lg);
   font-weight: 700;
   border-radius: var(--radius-sm);
-  border: 3px solid var(--primary-gold);
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.08em;

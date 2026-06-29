@@ -71,6 +71,17 @@
   --dur: 220ms;
   --dur-fast: 150ms;
   --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+  /* Primary CTA border — toggle Option A / B in one place (App.css) */
+  /* Option A (borderless): */
+  --cta-border-width: 0;
+  --cta-border-color: transparent;
+  --cta-border-hover-color: transparent;
+  /* Option B (subtle edge) — comment A above and uncomment:
+  --cta-border-width: 1px;
+  --cta-border-color: rgba(255, 255, 255, 0.15);
+  --cta-border-hover-color: rgba(255, 255, 255, 0.22);
+  */
 }
 
 /* Screen reader only utility */
@@ -176,6 +187,9 @@ body {
 .cta-button,
 .nav-cta,
 .submit-button {
+  border-style: solid;
+  border-width: var(--cta-border-width);
+  border-color: var(--cta-border-color);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32);
   transition: transform var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease),
@@ -190,7 +204,7 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.42);
   filter: brightness(1.06);
-  border-color: var(--primary-gold);
+  border-color: var(--cta-border-hover-color);
 }
 
 @media (max-width: 768px) {
