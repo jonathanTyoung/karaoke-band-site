@@ -2,6 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
+import { revealProps } from "../animations";
 import galleryData from "../data/gallery.json";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,40 +15,17 @@ const images = galleryData.images || galleryData;
   return (
     <section id="gallery" className="section">
       <div className="container">
-        <motion.span
-          className="section-eyebrow"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <motion.span className="section-eyebrow" {...revealProps(0)}>
           The Experience
         </motion.span>
-        <motion.h2
-          className="section-title"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <motion.h2 className="section-title" {...revealProps(1)}>
           Nashville Live Band Karaoke in Action
         </motion.h2>
-        <motion.p
-          className="section-subtitle"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <motion.p className="section-subtitle" {...revealProps(2)}>
           See us performing at weddings, parties, and events across Nashville
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
+        <motion.div {...revealProps(2)}>
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={30}

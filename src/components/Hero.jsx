@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { entranceProps } from "../animations";
 import "./Hero.css";
 
 const Hero = () => {
@@ -22,12 +23,7 @@ const Hero = () => {
           Nashville Live Band Karaoke — Premium Live Band Karaoke for Weddings,
           Birthdays &amp; Corporate Events
         </h1>
-        <motion.div
-          className="hero-logo-container"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
+        <motion.div className="hero-logo-container" {...entranceProps(0)}>
           <img
             src="/hero-logo2.png"
             alt="Nashville Live Band Karaoke"
@@ -35,12 +31,7 @@ const Hero = () => {
           />
         </motion.div>
 
-        <motion.div
-          className="hero-copy"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        <motion.div className="hero-copy" {...entranceProps(1)}>
           <p className="hero-headline">
             For one night, you&apos;re the headliner.
           </p>
@@ -53,9 +44,7 @@ const Hero = () => {
           href="#contact"
           className="cta-button"
           onClick={scrollToContact}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          {...entranceProps(2)}
           whileTap={{ scale: 0.95 }}
         >
           Request a Quote

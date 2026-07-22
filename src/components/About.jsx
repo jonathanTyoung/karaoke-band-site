@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { revealProps } from '../animations';
 import aboutData from '../data/about.json';
 import './About.css';
 
@@ -20,32 +21,14 @@ const About = () => {
       <div className="container">
         <div className="about-grid">
           <div className="about-copy">
-            <motion.span
-              className="section-eyebrow"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
+            <motion.span className="section-eyebrow" {...revealProps(0)}>
               Who We Are
             </motion.span>
-            <motion.h2
-              className="section-title"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.h2 className="section-title" {...revealProps(1)}>
               About Us
             </motion.h2>
             <div className="about-content">
-              <motion.p
-                className="about-text"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
+              <motion.p className="about-text" {...revealProps(2)}>
                 {aboutText}
               </motion.p>
               <div className="about-features">
@@ -53,10 +36,7 @@ const About = () => {
                   <motion.div
                     key={index}
                     className="feature"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                    {...revealProps(index)}
                   >
                     <h3>{feature.title}</h3>
                     <p>{feature.description}</p>
@@ -65,13 +45,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <motion.div
-            className="about-reel"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <motion.div className="about-reel" {...revealProps(1)}>
             <video
               className="about-reel-video"
               src={reelVideo}

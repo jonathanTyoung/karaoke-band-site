@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { revealProps } from "../animations";
 import "./ContactForm.css";
 
 // Mobile wizard option sets (cards drive the SR-only <select>s on mobile)
@@ -242,21 +243,15 @@ const ContactForm = () => {
   };
 
   return (
-    <motion.div
-      className="contact-form-wrapper"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-    >
+    <motion.div className="contact-form-wrapper" {...revealProps(0)}>
       <AnimatePresence>
         {submitSuccess && (
           <motion.div
             className="success-message"
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: -24 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.5, type: "spring" }}
+            exit={{ opacity: 0, y: -24 }}
+            transition={{ duration: 0.45, type: "spring" }}
           >
             <div className="success-content">
               <h3>Thank You!</h3>

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { revealProps } from "../animations";
 import testimonialsData from "../data/testimonials.json";
 import "./Testimonials.css";
 
@@ -9,22 +10,10 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="section testimonials-section">
       <div className="container">
-        <motion.span
-          className="section-eyebrow"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <motion.span className="section-eyebrow" {...revealProps(0)}>
           Reviews
         </motion.span>
-        <motion.h2
-          className="section-title"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <motion.h2 className="section-title" {...revealProps(1)}>
           What People Are Saying
         </motion.h2>
         <div className="testimonials-grid">
@@ -32,10 +21,7 @@ const Testimonials = () => {
             <motion.div
               key={index}
               className="testimonial-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+              {...revealProps(index)}
             >
               <div className="star-rating">
                 <span className="star">★</span>
