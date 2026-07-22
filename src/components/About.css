@@ -99,6 +99,13 @@
    centered against the shorter text column.
    ============================================ */
 @media (min-width: 769px) {
+  /* Compress the section's intrinsic height so the whole thing fits a
+     laptop viewport (~64% of the global --section-y, scoped here only) */
+  #about {
+    padding-top: clamp(2.5rem, 4vw, 4rem);
+    padding-bottom: clamp(2.5rem, 4vw, 4rem);
+  }
+
   .about-grid {
     grid-template-columns: 1.15fr 0.85fr;
     gap: clamp(2rem, 5vw, 4.5rem);
@@ -126,9 +133,16 @@
     margin-bottom: var(--space-8);
   }
 
-  /* Features stack in a single column inside the left column */
+  /* Features stack in a single column inside the left column,
+     tightened vertically so all three cards fit above the fold */
   .about-copy .about-features {
     grid-template-columns: 1fr;
+    margin-top: var(--space-6);
+    gap: var(--space-4);
+  }
+
+  .about-copy .feature {
+    padding: var(--space-6);
   }
 
   .about-reel {
@@ -142,7 +156,7 @@
   .about-reel-video {
     width: auto;
     max-width: 100%;
-    max-height: 640px;
+    max-height: min(600px, 72vh);
     margin: 0 auto;
   }
 }
