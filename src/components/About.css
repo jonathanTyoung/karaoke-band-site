@@ -1,5 +1,30 @@
 /* Section / container / title primitives live in App.css (shared) */
 
+/* Mobile-first: single column, text first (source order — no reordering
+   needed below 769px). Desktop two-column lives in the min-width block. */
+.about-grid {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.about-reel {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.about-reel-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 18%, transparent),
+    0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
 .about-content {
   max-width: 900px;
   margin: 0 auto;
@@ -62,5 +87,49 @@
 
   .feature {
     padding: var(--space-6) var(--space-4);
+  }
+}
+
+/* ============================================
+   DESKTOP TWO-COLUMN "ABOUT US" LAYOUT (>=769px)
+   Mirrors the .contact-grid pattern (ContactForm.css). Left column =
+   eyebrow + heading + about text + features, left-aligned (overrides
+   the centered section primitives, scoped to this section only).
+   Right column = 9:16 video reel, top-aligned — never vertically
+   centered against the shorter text column.
+   ============================================ */
+@media (min-width: 769px) {
+  .about-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .about-copy .section-eyebrow {
+    text-align: left;
+  }
+
+  .about-copy .section-title {
+    text-align: left;
+  }
+
+  .about-copy .about-content {
+    max-width: none;
+    margin: 0;
+  }
+
+  .about-copy .about-text {
+    text-align: left;
+    max-width: 58ch;
+  }
+
+  /* Features stack in a single column inside the left column */
+  .about-copy .about-features {
+    grid-template-columns: 1fr;
+  }
+
+  .about-reel {
+    max-width: none;
+    margin: 0;
   }
 }

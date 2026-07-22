@@ -56,6 +56,24 @@ collections:
               - { label: "Icon", name: "icon", widget: "string", hint: "Emoji" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "string" }
+          - {
+              label: "Reel Video",
+              name: "reel_video",
+              widget: "file",
+              required: false,
+              media_folder: "/public/videos",
+              public_folder: "/videos",
+              hint: "Vertical 9:16 MP4, muted. Shown beside the About text.",
+            }
+          - {
+              label: "Reel Poster Image",
+              name: "reel_poster",
+              widget: "image",
+              required: false,
+              media_folder: "/public/videos",
+              public_folder: "/videos",
+              hint: "Still image shown before the reel loads (9:16).",
+            }
 
   - name: "services"
     label: "Services"
