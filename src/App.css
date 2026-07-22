@@ -26,13 +26,17 @@
   --accent-glow: rgba(255, 215, 0, 0.3);
   --card-bg: rgba(255, 255, 255, 0.05);
   --border-color: color-mix(in srgb, var(--accent) 22%, transparent);
+  /* Brand pair — the two logo colors (pink/cyan); gradients derive from these */
+  --brand-pink: var(--primary-pink);
+  --brand-cyan: var(--accent);
   /* Signature gradients — keep using these instead of hardcoding hex */
+  --gradient-brand: linear-gradient(135deg, var(--brand-pink), var(--brand-cyan));
   --gradient-title: linear-gradient(135deg, #ffd700 0%, #ff1493 50%, #00d9ff 100%);
 
   /* Primary CTA fill — solid brand cyan (gradient retired for CTAs).
      If --cta-bg ever flips to a dark color, set --cta-text to #fff. */
-  --cta-bg: var(--accent);
-  --cta-bg-hover: color-mix(in srgb, var(--accent) 85%, black);
+  --cta-bg: var(--brand-cyan);
+  --cta-bg-hover: color-mix(in srgb, var(--brand-cyan) 85%, black);
   --cta-text: #0d0d0d;
 
   /* ── Typography (Anton display + Inter body) ───────────────────── */
@@ -169,16 +173,11 @@ body {
   text-transform: uppercase;
   margin-bottom: var(--space-4);
   letter-spacing: var(--tracking-display);
-  background: linear-gradient(
-    90deg,
-    var(--primary-gold) 0%,
-    var(--primary-pink) 50%,
-    var(--accent) 100%
-  );
+  background: var(--gradient-brand);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 40px rgba(255, 215, 0, 0.25);
+  text-shadow: 0 0 40px color-mix(in srgb, var(--brand-pink) 25%, transparent);
 }
 
 .section-subtitle {
