@@ -184,11 +184,13 @@ fall through to the SPA redirect.
 - **Footer social label bug** (`Footer.jsx:29`): the YouTube link has `aria-label="TikTok"`
   and visible text "Youtube". Facebook link is commented out (`Footer.jsx:23`).
 - **`src/logo.svg`** — unused CRA default leftover.
-- Design tokens live in `App.css :root`: `--primary-gold #ffd700`, `--primary-pink #ff1493`,
-  `--primary-purple #00d9ff`, `--bg-dark #0a0a0a`, `--bg-medium #1a1a1a`, `--bg-light #2a2a2a`,
-  `--border-color rgba(255,215,0,0.2)`. Body font is the **system stack** (`-apple-system…`);
-  there are **no Bebas Neue / Poppins** font tokens despite what an earlier draft claimed.
-  Aesthetic: dark concert venue, gold/pink accents. Reference tokens, don't hardcode hex.
+- Design tokens live in `App.css :root`. Brand pair is **pink + cyan** (`--brand-pink #ff1493`,
+  `--accent`/`--brand-cyan #00d9ff`, `--gradient-brand` pink→cyan, solid-cyan `--cta-bg`);
+  **gold was fully retired (July 2026)** — `--primary-gold`, `--primary-purple`, and
+  `--gradient-title` no longer exist, don't reintroduce them. Warm-charcoal backdrop tokens
+  (`--bg-base/-alt/-card/-elevated`, legacy `--bg-dark/-medium/-light` aliases), Anton display +
+  Inter body font tokens. Aesthetic: dark concert venue, pink/cyan neon. Reference tokens,
+  don't hardcode hex; keep hover glows subtle (`color-mix` alphas ≤ ~0.3).
 - **Mobile breakpoint:** `@media (max-width: 768px)`, used consistently across components.
 
 ## Conventions

@@ -17,9 +17,10 @@
 }
 
 .gallery-slide:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.35);
-  border-color: var(--primary-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6),
+    0 0 20px color-mix(in srgb, var(--accent) 25%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 .gallery-slide img {
@@ -39,28 +40,30 @@
 /* Swiper custom styles */
 .gallery-swiper .swiper-button-next,
 .gallery-swiper .swiper-button-prev {
-  color: #ffd700;
+  color: var(--accent);
   background: rgba(20, 20, 20, 0.9);
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  border: 2px solid #ffd700;
+  border: 2px solid var(--accent);
   transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .gallery-swiper .swiper-button-next:after,
 .gallery-swiper .swiper-button-prev:after {
   font-size: 22px;
   font-weight: bold;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
 .gallery-swiper .swiper-button-next:hover,
 .gallery-swiper .swiper-button-prev:hover {
   background: rgba(40, 40, 40, 0.9);
-  border-color: #ff1493;
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 20, 147, 0.4);
+  border-color: var(--brand-pink);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 0 20px color-mix(in srgb, var(--brand-pink) 30%, transparent);
   transform: scale(1.15);
 }
 
@@ -70,16 +73,16 @@
   width: 12px;
   height: 12px;
   opacity: 1;
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
   transition: all 0.3s ease;
 }
 
 .gallery-swiper .swiper-pagination-bullet-active {
-  background: #ffd700;
+  background: var(--accent);
   width: 35px;
   border-radius: 6px;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4);
-  border-color: #ffd700;
+  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 30%, transparent);
+  border-color: var(--accent);
 }
 
 @media (max-width: 768px) {

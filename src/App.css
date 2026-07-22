@@ -5,11 +5,9 @@
 }
 
 :root {
-  /* ── Color identity (NLBK signature — unchanged) ───────────────── */
-  --primary-gold: #ffd700;
+  /* ── Color identity (NLBK signature — pink/cyan pair) ──────────── */
   --primary-pink: #ff1493;
-  --primary-purple: #00d9ff; /* cyan — the primary accent */
-  --accent: #00d9ff; /* alias for new code; same cyan */
+  --accent: #00d9ff; /* cyan — the primary accent */
   --accent-hover: #33e1ff;
   /* Backdrop — warm charcoal (richer than flat black), alternating rhythm */
   --bg-base: #100e0e; /* sections (base) */
@@ -23,7 +21,7 @@
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.9);
   --text-muted: rgba(255, 255, 255, 0.6);
-  --accent-glow: rgba(255, 215, 0, 0.3);
+  --accent-glow: #00d9ff4d;
   --card-bg: rgba(255, 255, 255, 0.05);
   --border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   /* Brand pair — the two logo colors (pink/cyan); gradients derive from these */
@@ -31,7 +29,6 @@
   --brand-cyan: var(--accent);
   /* Signature gradients — keep using these instead of hardcoding hex */
   --gradient-brand: linear-gradient(135deg, var(--brand-pink), var(--brand-cyan));
-  --gradient-title: linear-gradient(135deg, #ffd700 0%, #ff1493 50%, #00d9ff 100%);
 
   /* Primary CTA fill — solid brand cyan (gradient retired for CTAs).
      If --cta-bg ever flips to a dark color, set --cta-text to #fff. */
@@ -229,17 +226,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    135deg,
-    var(--primary-pink),
-    var(--primary-purple)
-  );
+  background: var(--gradient-brand);
   border-radius: 6px;
   border: 2px solid var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, var(--primary-gold), var(--primary-pink));
+  background: var(--gradient-brand);
+  border-color: var(--bg-light);
 }
 
 ::selection {
