@@ -57,7 +57,6 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
                   >
                     <h3>{feature.title}</h3>
                     <p>{feature.description}</p>

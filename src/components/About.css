@@ -42,6 +42,9 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--space-6);
   margin-top: var(--space-12);
+  /* Content-sized cards: never stretch rows to fill the column */
+  align-items: start;
+  grid-auto-rows: min-content;
 }
 
 .feature {
@@ -50,20 +53,18 @@
   background: rgba(20, 20, 20, 0.5);
   border-radius: var(--radius-card);
   border: 1px solid var(--border-color);
-  border-top: 3px solid var(--accent);
-  transition: transform var(--dur) var(--ease),
-    border-color var(--dur) var(--ease), background var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease);
+  border-top: 3px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: transform 220ms ease-out, border-color 220ms ease-out,
+    background 220ms ease-out, box-shadow 220ms ease-out;
   backdrop-filter: blur(10px);
   position: relative;
 }
 
 .feature:hover {
   background: rgba(30, 30, 30, 0.7);
-  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
-  box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 20%, transparent),
-    0 10px 40px rgba(0, 0, 0, 0.25);
-  transform: translateY(-6px);
+  border-top-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+  transform: translateY(-2px);
 }
 
 .feature h3 {
@@ -120,6 +121,9 @@
   .about-copy .about-text {
     text-align: left;
     max-width: 58ch;
+    /* Tighter than the shared --space-16 so the paragraph and the
+       first feature card read as one stack */
+    margin-bottom: var(--space-8);
   }
 
   /* Features stack in a single column inside the left column */
