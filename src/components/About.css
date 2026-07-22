@@ -133,16 +133,32 @@
     margin-bottom: var(--space-8);
   }
 
-  /* Features stack in a single column inside the left column,
-     tightened vertically so all three cards fit above the fold */
+  /* Features sit as a row of three compact squares inside the left
+     column. aspect-ratio gives the square target; because cards are
+     grid items, min-height:auto (content-based minimum) lets a card
+     grow taller than square rather than clip its text. */
   .about-copy .about-features {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: var(--space-6);
     gap: var(--space-4);
   }
 
   .about-copy .feature {
-    padding: var(--space-6);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-4);
+  }
+
+  .about-copy .feature h3 {
+    font-size: var(--text-lg);
+  }
+
+  .about-copy .feature p {
+    font-size: var(--text-sm);
   }
 
   .about-reel {
