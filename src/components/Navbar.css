@@ -101,8 +101,7 @@
 }
 
 .nav-cta {
-  background: var(--gradient-cta);
-  color: var(--text-primary);
+  /* fill/text come from the shared CTA rule in App.css */
   padding: 0.8rem 1.6rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
@@ -110,7 +109,6 @@
   text-transform: uppercase;
   font-size: var(--text-sm);
   letter-spacing: 0.05em;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .nav-toggle {

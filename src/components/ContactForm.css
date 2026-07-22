@@ -274,10 +274,9 @@
    ============================================ */
 
 .submit-button {
+  /* fill/text come from the shared CTA rule in App.css */
   width: 100%;
   padding: 1.125rem 1.5rem;
-  background: var(--gradient-cta);
-  color: white;
   border-radius: var(--radius-sm);
   font-size: 1.1rem;
   font-weight: 800;
@@ -289,7 +288,6 @@
   margin-top: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -776,7 +774,8 @@
     font-size: 1.2rem;
     letter-spacing: 0.08em;
     cursor: pointer;
-    transition: box-shadow 0.2s ease, transform 0.15s ease;
+    transition: box-shadow 0.2s ease, transform 0.15s ease,
+      background-color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -800,15 +799,15 @@
   }
 
   .mobile-nav-next {
-    background: linear-gradient(135deg, #ff1493, #c2006a);
-    border: 2px solid rgba(255, 215, 0, 0.45);
-    color: #fff;
-    box-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
+    background: var(--cta-bg);
+    border: 2px solid transparent;
+    color: var(--cta-text);
+    box-shadow: 0 0 25px color-mix(in srgb, var(--accent) 30%, transparent);
   }
 
   .mobile-nav-next:hover:not(:disabled) {
-    box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
-    border-color: rgba(255, 215, 0, 0.75);
+    background: var(--cta-bg-hover);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 45%, transparent);
   }
 }
 
@@ -892,14 +891,9 @@
     padding: 0;
   }
 
-  /* ── Desktop submit: pink→gold gradient, full width, sharp corners ── */
+  /* ── Desktop submit: full width, sharp corners (fill from shared CTA rule) ── */
   .contact-grid .desktop-submit {
     width: 100%;
-    background: linear-gradient(
-      135deg,
-      var(--primary-pink),
-      var(--primary-gold)
-    );
     border-radius: var(--radius-sm);
   }
 

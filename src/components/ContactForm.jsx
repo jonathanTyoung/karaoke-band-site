@@ -758,7 +758,6 @@ const ContactForm = () => {
                 type="submit"
                 className="submit-button desktop-submit"
                 disabled={isSubmitting}
-                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {isSubmitting ? (

@@ -27,11 +27,17 @@
   --card-bg: rgba(255, 255, 255, 0.05);
   --border-color: color-mix(in srgb, var(--accent) 22%, transparent);
   /* Signature gradients — keep using these instead of hardcoding hex */
-  --gradient-cta: linear-gradient(135deg, #ff1493, #00d9ff);
   --gradient-title: linear-gradient(135deg, #ffd700 0%, #ff1493 50%, #00d9ff 100%);
+
+  /* Primary CTA fill — solid brand cyan (gradient retired for CTAs).
+     If --cta-bg ever flips to a dark color, set --cta-text to #fff. */
+  --cta-bg: var(--accent);
+  --cta-bg-hover: color-mix(in srgb, var(--accent) 85%, black);
+  --cta-text: #0d0d0d;
 
   /* ── Typography (Anton display + Inter body) ───────────────────── */
   --font-display: "Anton", "Arial Narrow", sans-serif; /* all-caps headlines */
+  --font-display-alt: "Space Grotesk", sans-serif; /* feature-card titles */
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Helvetica Neue", sans-serif;
 
@@ -187,6 +193,8 @@ body {
 .cta-button,
 .nav-cta,
 .submit-button {
+  background: var(--cta-bg);
+  color: var(--cta-text);
   border-style: solid;
   border-width: var(--cta-border-width);
   border-color: var(--cta-border-color);
@@ -195,7 +203,7 @@ body {
     box-shadow var(--dur) var(--ease),
     border-color var(--dur) var(--ease),
     opacity var(--dur) var(--ease),
-    filter var(--dur) var(--ease);
+    background-color var(--dur) var(--ease);
 }
 
 .cta-button:hover,
@@ -203,7 +211,7 @@ body {
 .submit-button:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.42);
-  filter: brightness(1.06);
+  background: var(--cta-bg-hover);
   border-color: var(--cta-border-hover-color);
 }
 

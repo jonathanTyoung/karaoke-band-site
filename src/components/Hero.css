@@ -137,12 +137,10 @@
   letter-spacing: 0.01em;
 }
 
-/* Signature gradient CTA button (kept on-brand) */
+/* Primary CTA button — fill/text come from the shared rule in App.css */
 .cta-button {
   display: inline-block;
   padding: 1.15rem 3rem;
-  background: var(--gradient-cta);
-  color: #fff;
   text-decoration: none;
   font-size: var(--text-lg);
   font-weight: 700;
@@ -151,12 +149,10 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   position: relative;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button:active {
   transform: translateY(0);
-  filter: brightness(1);
 }
 
 /* Mobile Optimization - Larger Logo */
