@@ -4,7 +4,7 @@
 // chains ≤ ~0.6s total (slot 0–4).
 
 // Static check at load: marketing page, no need to react to live changes.
-const prefersReducedMotion =
+export const prefersReducedMotion =
   typeof window !== "undefined" &&
   typeof window.matchMedia === "function" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;

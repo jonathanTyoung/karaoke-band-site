@@ -1,29 +1,5 @@
 /* Section / container / title primitives live in App.css (shared) */
 
-/* Mobile-first: single column, text first (source order — no reordering
-   needed below 769px). Desktop two-column lives in the min-width block. */
-.about-grid {
-  display: grid;
-  gap: var(--space-12);
-}
-
-.about-reel {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-}
-
-.about-reel-video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
-  border-radius: var(--radius-card);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
-}
-
 .about-content {
   max-width: 900px;
   margin: 0 auto;
@@ -91,89 +67,21 @@
   }
 }
 
-/* ============================================
-   DESKTOP TWO-COLUMN "ABOUT US" LAYOUT (>=769px)
-   Mirrors the .contact-grid pattern (ContactForm.css). Left column =
-   eyebrow + heading + about text + features, left-aligned (overrides
-   the centered section primitives, scoped to this section only).
-   Right column = 9:16 video reel, top-aligned — never vertically
-   centered against the shorter text column.
-   ============================================ */
+/* Desktop: three square cards across the centered 900px column (~284px each,
+   room enough for the full --text-h3 title scale). aspect-ratio sets the
+   square target; the content-based grid minimum lets a card grow taller
+   than square rather than clip its text. */
 @media (min-width: 769px) {
-  /* Compress the section's intrinsic height so the whole thing fits a
-     laptop viewport (~64% of the global --section-y, scoped here only) */
-  #about {
-    padding-top: clamp(2.5rem, 4vw, 4rem);
-    padding-bottom: clamp(2.5rem, 4vw, 4rem);
-  }
-
-  .about-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: clamp(2rem, 5vw, 4.5rem);
-    align-items: start;
-  }
-
-  .about-copy .section-eyebrow {
-    text-align: left;
-  }
-
-  .about-copy .section-title {
-    text-align: left;
-  }
-
-  .about-copy .about-content {
-    max-width: none;
-    margin: 0;
-  }
-
-  .about-copy .about-text {
-    text-align: left;
-    max-width: 58ch;
-    /* Tighter than the shared --space-16 so the paragraph and the
-       first feature card read as one stack */
-    margin-bottom: var(--space-8);
-  }
-
-  /* Features sit as a row of three compact squares inside the left
-     column. aspect-ratio gives the square target; because cards are
-     grid items, min-height:auto (content-based minimum) lets a card
-     grow taller than square rather than clip its text. */
-  .about-copy .about-features {
+  .about-features {
     grid-template-columns: repeat(3, 1fr);
-    margin-top: var(--space-6);
-    gap: var(--space-4);
   }
 
-  .about-copy .feature {
+  .feature {
     aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: var(--space-4);
-  }
-
-  .about-copy .feature h3 {
-    font-size: var(--text-lg);
-  }
-
-  .about-copy .feature p {
-    font-size: var(--text-sm);
-  }
-
-  .about-reel {
-    max-width: none;
-    margin: 0;
-  }
-
-  /* Cap the reel to roughly the text column's height so the whole
-     loop is visible without scrolling; width follows the 9:16 ratio
-     and the video centers in its grid track. */
-  .about-reel-video {
-    width: auto;
-    max-width: 100%;
-    max-height: min(600px, 72vh);
-    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
   }
 }

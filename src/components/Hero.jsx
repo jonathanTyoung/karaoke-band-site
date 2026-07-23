@@ -1,9 +1,18 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { entranceProps } from "../animations";
+import { entranceProps, prefersReducedMotion } from "../animations";
+import heroData from "../data/hero.json";
 import "./Hero.css";
 
+const DEFAULT_VIDEO_DESKTOP = "/videos/nlbk-reel-horizontal.mp4";
+const DEFAULT_VIDEO_MOBILE = "/videos/nlbk-reel.mp4";
+const DEFAULT_POSTER = "/videos/nlbk-horizontal-poster.jpg";
+
 const Hero = () => {
+  const videoDesktop = heroData?.video_desktop || DEFAULT_VIDEO_DESKTOP;
+  const videoMobile = heroData?.video_mobile || DEFAULT_VIDEO_MOBILE;
+  const poster = heroData?.poster || DEFAULT_POSTER;
+
   // Subtle scroll parallax: lift the hero content as the user scrolls past it.
   const { scrollY } = useScroll();
   const parallaxY = useTransform(scrollY, [0, 400], [0, -70]);
@@ -18,6 +27,24 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero-section">
+      {/* Sibling of .hero-content (not a child) so it stays fixed while the
+          content parallaxes. Source order is the media-query contract:
+          browsers pick the first matching <source> at load time. */}
+      <video
+        className="hero-bg-video"
+        autoPlay={!prefersReducedMotion}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={poster}
+        aria-hidden="true"
+        tabIndex={-1}
+      >
+        <source media="(min-width: 769px)" src={videoDesktop} />
+        <source src={videoMobile} />
+      </video>
+      <div className="hero-scrim" aria-hidden="true" />
       <motion.div className="hero-content" style={{ y: parallaxY }}>
         <h1 className="sr-only">
           Nashville Live Band Karaoke — Premium Live Band Karaoke for Weddings,
