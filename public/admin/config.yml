@@ -97,3 +97,35 @@ collections:
                   media_folder: "/public/images/services",
                   public_folder: "/images/services",
                 }
+
+  - name: "hero"
+    label: "Hero"
+    files:
+      - label: "Hero Section"
+        name: "hero"
+        file: "src/data/hero.json"
+        fields:
+          - {
+              label: "Background Video (Desktop)",
+              name: "video_desktop",
+              widget: "file",
+              media_folder: "/public/videos",
+              public_folder: "/videos",
+              hint: "Landscape MP4, muted. Plays behind the logo on screens wider than 768px.",
+            }
+          - {
+              label: "Background Video (Mobile)",
+              name: "video_mobile",
+              widget: "file",
+              media_folder: "/public/videos",
+              public_folder: "/videos",
+              hint: "Vertical 9:16 MP4, muted. Plays behind the logo on phones.",
+            }
+          - {
+              label: "Poster Image",
+              name: "poster",
+              widget: "image",
+              media_folder: "/public/videos",
+              public_folder: "/videos",
+              hint: "Still image shown before the video loads (and instead of it for reduced-motion visitors).",
+            }
