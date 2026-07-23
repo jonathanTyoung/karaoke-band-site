@@ -9,9 +9,41 @@
   padding: 2rem 1rem;
 }
 
+/* Background performance reel. Layer stack (all inside .hero-section):
+   video (0) → scrim (1) → breathing glow ::before (2) → content (3).
+   Sibling of .hero-content so the parallax transform never moves it. */
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Legibility scrim between the video and the content: heaviest at the top
+   (headline under the navbar) and bottom (hand-off into About), lightest
+   mid-frame so the reel stays watchable behind the logo's own glow. */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-base) 68%, transparent) 0%,
+    color-mix(in srgb, var(--bg-base) 42%, transparent) 38%,
+    color-mix(in srgb, var(--bg-base) 46%, transparent) 68%,
+    color-mix(in srgb, var(--bg-base) 78%, transparent) 100%
+  );
+}
+
 /* Atmospheric radial glow that slowly breathes behind the logo.
    Brand pink (#ff2d9b) core fading through cyan (#00d9ff) to transparent,
-   kept very low opacity so it reads as ambience, not a spotlight. */
+   kept very low opacity so it reads as ambience, not a spotlight.
+   Sits ABOVE the scrim so it tints the darkened video pink/cyan instead
+   of being buried under it. */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -26,7 +58,7 @@
     rgba(0, 217, 255, 0.1) 48%,
     transparent 78%
   );
-  z-index: 0;
+  z-index: 2;
   pointer-events: none;
   animation: hero-glow-pulse 9s ease-in-out infinite;
 }
@@ -47,11 +79,15 @@
   .hero-section::before {
     animation: none;
   }
+
+  .hero-logo {
+    animation: none;
+  }
 }
 
 .hero-content {
   text-align: center;
-  z-index: 1;
+  z-index: 3;
   max-width: 1200px;
   max-height: 90vh;
   padding: 1rem 2rem;
