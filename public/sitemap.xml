@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--
+  Image entries below mirror src/data/gallery.json (Decap-CMS-managed).
+  gallery.json changes whenever Alex edits the gallery via /admin — regenerate
+  this list by hand when it does (deliberately manual; no build-script infra).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nashvillelivebandkaraoke.com/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://nashvillelivebandkaraoke.com/images/gallery/img_5065.jpg</image:loc>
+      <image:caption>Nashville Live Band Karaoke guitarist performing at a private party</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nashvillelivebandkaraoke.com/images/gallery/img_5066-2.jpg</image:loc>
+      <image:caption>Crowd singing and dancing at a Nashville live band karaoke event</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nashvillelivebandkaraoke.com/images/gallery/img_5063.jpg</image:loc>
+      <image:caption>Live karaoke band performer on stage under purple stage lighting in Nashville</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nashvillelivebandkaraoke.com/images/gallery/img_8847-3.jpg</image:loc>
+      <image:caption>Nashville Live Band Karaoke group photo with band and guests at a private party</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nashvillelivebandkaraoke.com/images/gallery/karaokefriends.jpg</image:loc>
+      <image:caption>Bride and groom dancing with guests at a Nashville wedding karaoke reception</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nashvillelivebandkaraoke.com/videos/nlbk-horizontal-poster.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://nashvillelivebandkaraoke.com/videos/nlbk-reel-poster.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://nashvillelivebandkaraoke.com/hero-logo2.png</image:loc>
+    </image:image>
   </url>
 </urlset>
