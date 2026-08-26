@@ -333,6 +333,26 @@
       font-style: normal;
     }
 
+    .reviews-link-wrap { text-align: center; margin-top: 2.5rem; }
+
+    .reviews-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--dur) var(--ease);
+    }
+
+    .reviews-link:hover,
+    .reviews-link:focus-visible {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
     /* ---------- 5. Booking form ---------- */
     .booking { padding: var(--section-y) 0; }
 
@@ -545,6 +565,15 @@
             </figcaption>
           </figure>
         </div>
+
+        <div class="reviews-link-wrap">
+          <a
+            class="reviews-link"
+            href="https://maps.app.goo.gl/nKmfU4XVZAisb2W88"
+            target="_blank"
+            rel="noopener noreferrer"
+          >⭐ See our Google Reviews</a>
+        </div>
       </div>
     </section>
 
@@ -661,11 +690,15 @@
       });
     })();
 
-    // no past dates in the event-date picker
+    // no past dates in the event-date picker - local calendar date, not UTC
     (function () {
       var eventDate = document.getElementById('event-date');
       if (!eventDate) return;
-      eventDate.min = new Date().toISOString().split('T')[0];
+      const d = new Date();
+      const min = d.getFullYear() + '-' +
+        String(d.getMonth() + 1).padStart(2, '0') + '-' +
+        String(d.getDate()).padStart(2, '0');
+      eventDate.min = min;
     })();
   </script>
 
