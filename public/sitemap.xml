@@ -41,4 +41,10 @@
       <image:loc>https://nashvillelivebandkaraoke.com/hero-logo2.png</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://nashvillelivebandkaraoke.com/booking/thank-you</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

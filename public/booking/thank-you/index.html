@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Thank You — Nashville Live Band Karaoke</title>
+  <meta name="description" content="Thanks for reaching out to Nashville Live Band Karaoke. We'll be in touch within 24 hours to talk through your event." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-base: #100e0e;
+      --bg-card: #1f1c1b;
+      --bg-elevated: #282422;
+      --accent: #00d9ff;
+      --accent-hover: #33e1ff;
+      --accent-glow: #00d9ff4d;
+      --primary-pink: #ff1493;
+      --brand-pink: #ff1493;
+      --gradient-brand: linear-gradient(135deg, #ff1493, #00d9ff);
+      --cta-bg: #00d9ff;
+      --cta-text: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.9);
+      --text-muted: rgba(255,255,255,0.6);
+      --border-color: rgba(0,217,255,0.22);
+      --radius-sm: 2px;
+      --radius-card: 4px;
+      --font-display: "Anton", "Arial Narrow", sans-serif;
+      --font-body: "Inter", -apple-system, sans-serif;
+      --section-y: clamp(4rem, 8vw, 7rem);
+      --container: 1200px;
+      --ease: cubic-bezier(.4,0,.2,1);
+      --dur: 220ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: var(--section-y) 1.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    .thanks {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .thanks-logo { width: 100%; max-width: 240px; height: auto; }
+
+    .thanks-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 6vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin: 0;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .thanks-body {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.5rem;
+      color: var(--accent);
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: color var(--dur) var(--ease);
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .thanks-logo { max-width: 200px; }
+      .thanks-body { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="thanks">
+    <img class="thanks-logo" src="/hero-logo2.png" alt="Nashville Live Band Karaoke" width="240" height="240" />
+    <h1 class="thanks-headline">We Got Your Inquiry!</h1>
+    <p class="thanks-body">Thanks for reaching out. We'll be in touch within 24 hours to talk through your event.</p>
+    <a class="back-link" href="/">&larr; Back to Nashville Live Band Karaoke</a>
+  </main>
+
+</body>
+</html>
