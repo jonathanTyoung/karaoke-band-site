@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Book Nashville's Live Band Karaoke Experience</title>
+  <meta name="description" content="Book Nashville's #1 live band karaoke experience for weddings, corporate events, birthdays and private parties. Real band, real crowd, unforgettable night." />
+  <link rel="canonical" href="https://nashvillelivebandkaraoke.com/booking" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Book Nashville's Live Band Karaoke Experience" />
+  <meta property="og:description" content="Book Nashville's #1 live band karaoke experience for weddings, corporate events, birthdays and private parties. Real band, real crowd, unforgettable night." />
+  <meta property="og:image" content="https://nashvillelivebandkaraoke.com/preview-image.jpg" />
+  <meta property="og:url" content="https://nashvillelivebandkaraoke.com/booking" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-base: #100e0e;
+      --bg-card: #1f1c1b;
+      --bg-elevated: #282422;
+      --accent: #00d9ff;
+      --accent-hover: #33e1ff;
+      --accent-glow: #00d9ff4d;
+      --primary-pink: #ff1493;
+      --brand-pink: #ff1493;
+      --gradient-brand: linear-gradient(135deg, #ff1493, #00d9ff);
+      --cta-bg: #00d9ff;
+      --cta-text: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.9);
+      --text-muted: rgba(255,255,255,0.6);
+      --border-color: rgba(0,217,255,0.22);
+      --radius-sm: 2px;
+      --radius-card: 4px;
+      --font-display: "Anton", "Arial Narrow", sans-serif;
+      --font-body: "Inter", -apple-system, sans-serif;
+      --section-y: clamp(4rem, 8vw, 7rem);
+      --container: 1200px;
+      --ease: cubic-bezier(.4,0,.2,1);
+      --dur: 220ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .gradient-text {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+    }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin: 0 0 2.5rem;
+      text-transform: uppercase;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: var(--cta-bg);
+      color: var(--cta-text);
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      min-height: 44px;
+      transition: background var(--dur) var(--ease),
+                  transform var(--dur) var(--ease),
+                  box-shadow var(--dur) var(--ease);
+    }
+
+    .btn-cta:hover,
+    .btn-cta:focus-visible {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    /* ---------- 1. Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background-color: var(--bg-base);
+      background-image: url("/videos/nlbk-horizontal-poster.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 4rem 0;
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to bottom, rgba(16,14,14,0.7), rgba(16,14,14,0.5), rgba(16,14,14,0.8));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .hero-logo { width: 100%; max-width: 360px; height: auto; }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 7vw, 5.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin: 0;
+      max-width: 16ch;
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* ---------- 2. Value props ---------- */
+    .value-props { padding: var(--section-y) 0; }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+
+    .value-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,217,255,0.12);
+    }
+
+    .value-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .value-card p { margin: 0; color: var(--text-muted); }
+
+    /* ---------- 3. Photo strip ---------- */
+    .photo-strip { padding: 0 0 var(--section-y); }
+
+    .strip-scroller {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 0 1.5rem;
+    }
+
+    .strip-scroller::-webkit-scrollbar { display: none; }
+
+    .strip-scroller img {
+      height: 280px;
+      width: auto;
+      flex: 0 0 auto;
+      object-fit: cover;
+      border-radius: var(--radius-card);
+      scroll-snap-align: start;
+    }
+
+    /* ---------- 4. Testimonials ---------- */
+    .testimonials { padding: 0 0 var(--section-y); }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-grid.has-expanded { align-items: start; }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,217,255,0.12);
+    }
+
+    .testimonial-card::before {
+      content: "\201C";
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--brand-pink);
+    }
+
+    .testimonial-card blockquote {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .testimonial-card.is-expanded blockquote {
+      display: block;
+      -webkit-line-clamp: none;
+      line-clamp: none;
+      overflow: visible;
+    }
+
+    .quote-toggle {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      margin-top: -0.75rem;
+      padding: 0;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      color: var(--accent);
+      cursor: pointer;
+      transition: color var(--dur) var(--ease);
+    }
+
+    .quote-toggle:hover,
+    .quote-toggle:focus-visible {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    .quote-toggle[hidden] { display: none; }
+
+    .testimonial-attr {
+      margin: auto 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .testimonial-author {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      font-style: normal;
+    }
+
+    .testimonial-company {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .reviews-link-wrap { text-align: center; margin-top: 2.5rem; }
+
+    .reviews-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--dur) var(--ease);
+    }
+
+    .reviews-link:hover,
+    .reviews-link:focus-visible {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* ---------- 5. Booking form ---------- */
+    .booking { padding: var(--section-y) 0; }
+
+    .booking-inner { max-width: 760px; margin: 0 auto; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .field { display: flex; flex-direction: column; }
+    .field-full { grid-column: 1 / -1; }
+
+    .field label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.875rem;
+      min-height: 44px;
+      width: 100%;
+      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+
+    .field textarea { resize: vertical; min-height: 120px; }
+
+    /* dark native picker chrome, so the calendar icon renders light */
+    .field input[type="date"] { color-scheme: dark; }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--text-muted); }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .field select option { background: var(--bg-elevated); color: var(--text-primary); }
+
+    .btn-submit { width: 100%; margin-top: 1.75rem; }
+
+    /* ---------- 6. Secondary CTA ---------- */
+    .secondary-cta {
+      text-align: center;
+      padding: 0 0 var(--section-y);
+      color: var(--text-muted);
+      font-family: var(--font-body);
+    }
+
+    .secondary-cta p { margin: 0 0 0.5rem; }
+
+    .secondary-cta a {
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.5rem;
+      transition: color var(--dur) var(--ease);
+    }
+
+    .secondary-cta a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    .secondary-cta .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem 1.5rem;
+    }
+
+    /* ---------- 7. Footer ---------- */
+    .site-footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--dur) var(--ease);
+    }
+
+    .footer-link:hover,
+    .footer-link:focus-visible {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .footer-copy { margin: 0; }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 768px) {
+      .hero-logo { max-width: 280px; }
+      .hero-sub { font-size: 1.125rem; }
+      .value-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .strip-scroller img { height: 220px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Hero -->
+  <header class="hero">
+    <div class="hero-scrim"></div>
+
+    <div class="container hero-content">
+      <img class="hero-logo" src="/hero-logo2.png" alt="Nashville Live Band Karaoke" width="360" height="360" />
+      <h1 class="hero-headline gradient-text">Nashville's Live Band Karaoke Experience</h1>
+      <p class="hero-sub">Real band. Real crowd. Unforgettable night.</p>
+      <a class="btn-cta" href="#booking-form">Get a Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Value props -->
+    <section class="value-props">
+      <div class="container">
+        <p class="eyebrow">Why NLBK</p>
+        <h2 class="section-headline gradient-text">The Live Band Karaoke Difference</h2>
+
+        <div class="value-grid">
+          <article class="value-card">
+            <h3>Live Band, Not Backing Tracks</h3>
+            <p>Real musicians play your song requests live. Every performance is one of a kind.</p>
+          </article>
+          <article class="value-card">
+            <h3>Any Venue, Any Event</h3>
+            <p>Weddings, corporate events, birthday parties, bar nights. We bring the full setup to you.</p>
+          </article>
+          <article class="value-card">
+            <h3>Nashville's Best</h3>
+            <p>Nashville's premier live band karaoke experience. The crowd sings, the band plays, memories are made.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Photo strip -->
+    <section class="photo-strip" aria-label="Photos from past events">
+      <div class="strip-scroller">
+        <img src="/images/gallery/dsc07006-3.jpg" alt="Nashville Live Band Karaoke performing on stage" loading="lazy" />
+        <img src="/images/gallery/img_5063.jpg" alt="Live karaoke band performer under stage lighting" loading="lazy" />
+        <img src="/images/gallery/img_5064.jpg" alt="Band and guests at a Nashville live band karaoke night" loading="lazy" />
+        <img src="/images/gallery/img_5065.jpg" alt="Guitarist performing at a private live band karaoke party" loading="lazy" />
+        <img src="/images/gallery/img_0359-3.jpg" alt="Crowd singing along with the live karaoke band" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- 4. Testimonials -->
+    <section class="testimonials">
+      <div class="container">
+        <p class="eyebrow">What People Say</p>
+        <h2 class="section-headline gradient-text">Don't Just Take Our Word For It</h2>
+
+        <div class="testimonial-grid">
+          <figure class="testimonial-card">
+            <blockquote id="quote-eliana">I booked the band for a company event and received the most compliments from my colleagues stating this event was the best by far! We chose to do live band karaoke. They were amazing to work with. Booking was easy. Very reliable they showed up on time and sent me all of the info in a timely manner. 10/10 experience! I have since told all my friends and colleagues that they need to do it for their next event!</blockquote>
+            <button type="button" class="quote-toggle" aria-controls="quote-eliana" aria-expanded="false" hidden>Read more</button>
+            <figcaption class="testimonial-attr">
+              <cite class="testimonial-author">Eliana</cite>
+              <cite class="testimonial-company">Premise Health</cite>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card">
+            <blockquote id="quote-matt-heller">As an Entertainment Manager I cannot recommend Nashville Live Band Karaoke enough! Not only are they all phenomenal musicians, but they are always punctual, friendly, and reliable! They have the ability to hold any crowd for any event and are consummate professionals. They communicate well and can make any participant feel comfortable and welcome! Hire them for your next event, you won't regret it!</blockquote>
+            <button type="button" class="quote-toggle" aria-controls="quote-matt-heller" aria-expanded="false" hidden>Read more</button>
+            <figcaption class="testimonial-attr">
+              <cite class="testimonial-author">Matt Heller</cite>
+              <cite class="testimonial-company">Entertainment Manager, Tin Roof</cite>
+            </figcaption>
+          </figure>
+          <figure class="testimonial-card">
+            <blockquote id="quote-andrew-valez">As the owner of The Ave booking agency, I've worked with hundreds of acts across the country—and this band is easily in the top echelon of performers I've ever booked. I've hired them multiple times for a wide range of venues and client types, and they deliver every single time. Their energy is off the charts whether they're playing to 30 people or hundreds. The vocals are exceptional, with harmonies that blend seamlessly like a family, and their musicianship is truly unrivaled—it feels like a full-scale concert experience every night. Beyond the performance, they are some of the nicest, most professional musicians you'll ever work with: punctual, accommodating, and incredibly respectful to guests and venue staff alike. I've never had a client finish a show without immediately asking how they can book them again for their next event.</blockquote>
+            <button type="button" class="quote-toggle" aria-controls="quote-andrew-valez" aria-expanded="false" hidden>Read more</button>
+            <figcaption class="testimonial-attr">
+              <cite class="testimonial-author">Andrew Valez</cite>
+              <cite class="testimonial-company">The Ave Agency</cite>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="reviews-link-wrap">
+          <a
+            class="reviews-link"
+            href="https://maps.app.goo.gl/nKmfU4XVZAisb2W88"
+            target="_blank"
+            rel="noopener noreferrer"
+          >⭐ See our Google Reviews</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Booking form -->
+    <section class="booking" id="booking-form">
+      <div class="container booking-inner">
+        <p class="eyebrow">Book Your Event</p>
+        <h2 class="section-headline gradient-text">Let's Make It Happen</h2>
+
+        <form
+          name="booking"
+          method="POST"
+          action="/booking/thank-you"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="booking" />
+          <input type="hidden" name="bot-field" />
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="event-type">Event Type</label>
+              <select id="event-type" name="event-type" required>
+                <option value="">Select an event type</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Corporate Event">Corporate Event</option>
+                <option value="Birthday Party">Birthday Party</option>
+                <option value="Bar / Venue Night">Bar / Venue Night</option>
+                <option value="Private Party">Private Party</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field field-full">
+              <label for="event-date">Event Date</label>
+              <input type="date" id="event-date" name="event-date" required />
+            </div>
+
+            <div class="field field-full">
+              <label for="message">Additional Details</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Tell us about your event — venue, guest count, vibe, anything else we should know"
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-cta btn-submit">Submit Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 6. Secondary CTA -->
+    <section class="secondary-cta">
+      <div class="container">
+        <p>Prefer to reach out directly?</p>
+        <div class="contact-links">
+          <a href="tel:+16155546020">(615) 554-6020</a>
+          <a href="mailto:info@nashvillelivebandkaraoke.com">info@nashvillelivebandkaraoke.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. Footer -->
+  <footer class="site-footer">
+    <a class="footer-link" href="/">&larr; Nashville Live Band Karaoke</a>
+    <p class="footer-copy">© 2026 Nashville Live Band Karaoke. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var grid = document.querySelector('.testimonial-grid');
+      var toggles = document.querySelectorAll('.quote-toggle');
+      if (!grid || !toggles.length) return;
+
+      function syncGrid() {
+        grid.classList.toggle(
+          'has-expanded',
+          !!grid.querySelector('.testimonial-card.is-expanded')
+        );
+      }
+
+      Array.prototype.forEach.call(toggles, function (btn) {
+        var card = btn.closest('.testimonial-card');
+        if (!card) return;
+
+        // only revealed once JS is running, so it is never a dead control
+        btn.hidden = false;
+
+        btn.addEventListener('click', function () {
+          var expanded = card.classList.toggle('is-expanded');
+          btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          btn.textContent = expanded ? 'Read less' : 'Read more';
+          syncGrid();
+        });
+      });
+    })();
+
+    // no past dates in the event-date picker - local calendar date, not UTC
+    (function () {
+      var eventDate = document.getElementById('event-date');
+      if (!eventDate) return;
+      const d = new Date();
+      const min = d.getFullYear() + '-' +
+        String(d.getMonth() + 1).padStart(2, '0') + '-' +
+        String(d.getDate()).padStart(2, '0');
+      eventDate.min = min;
+    })();
+  </script>
+
+</body>
+</html>
