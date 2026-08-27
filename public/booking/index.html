@@ -130,11 +130,19 @@
       text-align: center;
       overflow: hidden;
       background-color: var(--bg-base);
-      background-image: url("/videos/nlbk-horizontal-poster.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       padding: 4rem 0;
+    }
+
+    /* Background performance reel. Layer stack: video (0) -> scrim (1) -> content (2).
+       The poster covers the frame until the reel has data to paint. */
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .hero-scrim {
@@ -488,6 +496,23 @@
 
   <!-- 1. Hero -->
   <header class="hero">
+    <!-- Source order is the media-query contract: the browser picks the first
+         matching <source> at load time, so desktop must come first. -->
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/videos/nlbk-horizontal-poster.jpg"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <source media="(min-width: 769px)" src="/videos/nlbk-reel-horizontal.mp4" />
+      <source src="/videos/nlbk-reel.mp4" />
+    </video>
+
     <div class="hero-scrim"></div>
 
     <div class="container hero-content">
@@ -502,17 +527,17 @@
     <!-- 2. Value props -->
     <section class="value-props">
       <div class="container">
-        <p class="eyebrow">Why NLBK</p>
+        <p class="eyebrow">Why Us?</p>
         <h2 class="section-headline gradient-text">The Live Band Karaoke Difference</h2>
 
         <div class="value-grid">
           <article class="value-card">
-            <h3>Live Band, Not Backing Tracks</h3>
-            <p>Real musicians play your song requests live. Every performance is one of a kind.</p>
+            <h3>Live Band</h3>
+            <p>Play alongside Nashville's finest players and you're the lead singer.</p>
           </article>
           <article class="value-card">
             <h3>Any Venue, Any Event</h3>
-            <p>Weddings, corporate events, birthday parties, bar nights. We bring the full setup to you.</p>
+            <p>Weddings, corporate events, birthday parties, bars or clubs. We bring the full setup to you.</p>
           </article>
           <article class="value-card">
             <h3>Nashville's Best</h3>
@@ -688,6 +713,28 @@
           syncGrid();
         });
       });
+    })();
+
+    // hero reel respects prefers-reduced-motion: hold on the poster frame
+    (function () {
+      var video = document.querySelector('.hero-video');
+      if (!video || !window.matchMedia) return;
+
+      var query = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function sync() {
+        if (query.matches) {
+          video.pause();
+        } else if (video.paused) {
+          var played = video.play();
+          if (played && played.catch) played.catch(function () {});
+        }
+      }
+
+      sync();
+      video.addEventListener('loadeddata', sync);
+      if (query.addEventListener) query.addEventListener('change', sync);
+      else if (query.addListener) query.addListener(sync);
     })();
 
     // no past dates in the event-date picker - local calendar date, not UTC
