@@ -177,8 +177,8 @@
   /* Show image logo on mobile */
   .nav-logo-mobile {
     display: block;
-    height: 40px;
-    width: auto;
+    max-width: 260px;
+    height: auto;
     filter: drop-shadow(
       0 0 10px color-mix(in srgb, var(--accent) 35%, transparent)
     );
@@ -221,7 +221,8 @@
   }
 
   .nav-logo-mobile {
-    height: 35px;
+    max-width: 260px;
+    height: auto;
   }
 }
 
@@ -232,6 +233,7 @@
   }
 
   .nav-logo-mobile {
-    height: 30px;
+    max-width: 260px;
+    height: auto;
   }
 }

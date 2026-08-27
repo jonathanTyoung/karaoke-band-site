@@ -41,7 +41,7 @@ const Navbar = () => {
             className="nav-logo-img"
           />
           <img
-            src="/apple-touch-icon.png"
+            src="/navbar-logo4-mobile.png"
             alt="Nashville Live Band Karaoke"
             className="nav-logo-mobile"
           />
