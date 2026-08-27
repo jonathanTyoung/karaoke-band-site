@@ -1,16 +1,11 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 import { revealProps } from "../animations";
 import galleryData from "../data/gallery.json";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "./Gallery.css";
 
 const Gallery = () => {
-const images = galleryData.images || galleryData;
+  const images = galleryData.images || galleryData;
 
   return (
     <section id="gallery" className="section">
@@ -24,44 +19,33 @@ const images = galleryData.images || galleryData;
         <motion.p className="section-subtitle" {...revealProps(2)}>
           See us performing at weddings, parties, and events across Nashville
         </motion.p>
-
-        <motion.div {...revealProps(2)}>
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
-            loop={true}
-            className="gallery-swiper"
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {images.map((image, index) => (
-              <SwiperSlide key={index}>
-                <div className="gallery-slide">
-                  <img
-                    src={image.url}
-                    alt={image.alt}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  {image.caption && (
-                    <p className="image-caption">{image.caption}</p>
-                  )}
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </motion.div>
       </div>
+
+      {/* Edge-to-edge elastic accordion — lives outside .container so it can
+          break the 1200px column and the section's horizontal padding. */}
+      <motion.div className="gallery-accordion" {...revealProps(2)}>
+        {images.map((image, index) => (
+          <div className="gallery-panel" key={index}>
+            <img
+              src={image.url}
+              alt={image.alt}
+              loading="lazy"
+              decoding="async"
+            />
+            <div
+              className={
+                image.caption
+                  ? "gallery-panel-overlay has-caption"
+                  : "gallery-panel-overlay"
+              }
+            >
+              {image.caption && (
+                <p className="gallery-panel-caption">{image.caption}</p>
+              )}
+            </div>
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 };

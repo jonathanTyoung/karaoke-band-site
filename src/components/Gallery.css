@@ -1,97 +1,91 @@
 /* .section-subtitle primitive lives in App.css (shared) */
 
-.gallery-swiper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--space-8) 0 var(--space-16);
-}
-
-.gallery-slide {
-  border-radius: var(--radius-card);
+/* Elastic accordion: equal-width panels that trade space on hover.
+   Negative margins cancel the .section 2rem padding so the row runs
+   edge to edge. */
+.gallery-accordion {
+  display: flex;
+  height: 420px;
+  margin: var(--space-12) -2rem 0;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
-  border: 1px solid var(--border-color);
+}
+
+.gallery-panel {
   position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  flex: 1 1 0;
+  min-width: 0;
+  transition: flex-grow 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-slide:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6),
-    0 0 20px color-mix(in srgb, var(--accent) 25%, transparent);
-  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+.gallery-panel:hover {
+  flex-grow: 4;
 }
 
-.gallery-slide img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
+.gallery-panel img {
   display: block;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: brightness(0.9);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: filter 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-slide:hover img {
-  transform: scale(1.08);
+.gallery-panel:hover img {
   filter: brightness(1.05);
 }
 
-/* Swiper custom styles */
-.gallery-swiper .swiper-button-next,
-.gallery-swiper .swiper-button-prev {
-  color: var(--accent);
-  background: rgba(20, 20, 20, 0.9);
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 30%, transparent),
-    0 5px 20px rgba(0, 0, 0, 0.5);
+.gallery-panel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
-.gallery-swiper .swiper-button-next:after,
-.gallery-swiper .swiper-button-prev:after {
-  font-size: 22px;
-  font-weight: bold;
-  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 30%, transparent);
-}
-
-.gallery-swiper .swiper-button-next:hover,
-.gallery-swiper .swiper-button-prev:hover {
-  background: rgba(40, 40, 40, 0.9);
-  border-color: var(--brand-pink);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 30%, transparent),
-    0 0 20px color-mix(in srgb, var(--brand-pink) 30%, transparent);
-  transform: scale(1.15);
-}
-
-/* Pagination dots */
-.gallery-swiper .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.4);
-  width: 12px;
-  height: 12px;
+.gallery-panel:hover .gallery-panel-overlay {
   opacity: 1;
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-  transition: all 0.3s ease;
 }
 
-.gallery-swiper .swiper-pagination-bullet-active {
-  background: var(--accent);
-  width: 35px;
-  border-radius: 6px;
-  box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 30%, transparent);
-  border-color: var(--accent);
+.gallery-panel-caption {
+  margin: 0;
+  padding: var(--space-4);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: var(--leading-body);
+  color: #fff;
+  text-align: left;
 }
 
+/* Mobile: no accordion (hover doesn't exist on touch) — plain vertical stack. */
 @media (max-width: 768px) {
-  .gallery-slide img {
-    height: 300px;
+  .gallery-accordion {
+    display: block;
+    height: auto;
   }
 
-  .gallery-swiper .swiper-button-next,
-  .gallery-swiper .swiper-button-prev {
-    display: none;
+  .gallery-panel {
+    width: 100%;
+    height: 220px;
+    cursor: default;
+  }
+
+  .gallery-panel img {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  /* Captions can't be revealed on hover here, so show them outright */
+  .gallery-panel-overlay.has-caption {
+    opacity: 1;
   }
 }

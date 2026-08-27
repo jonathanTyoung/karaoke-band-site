@@ -1,20 +1,20 @@
 {
-  "about_text": "We're Nashville's premier karaoke entertainment, bringing unforgettable experiences to weddings, corporate events, birthday parties, and more. With thousands of songs and professional equipment, we guarantee your guests will have the time of their lives.",
+  "about_text": "Nashville Live Band Karaoke is the only experience where you're not just in the crowd — you're the headliner. Our professional musicians back you up live while you take the mic in front of your guests. No backing tracks. No DJ. A real band, playing your song, while the room goes wild.",
   "features": [
     {
       "icon": "🎵",
-      "title": "Huge Song Library",
-      "description": "Thousands of songs across all genres"
+      "title": "You Pick the Song",
+      "description": "From pop to country to classic rock — if you know it, we play it."
     },
     {
       "icon": "🎙️",
-      "title": "Pro Equipment",
-      "description": "Crystal clear sound and lighting"
+      "title": "We Play It Live",
+      "description": "Real musicians, real instruments, real energy. No backing tracks, ever."
     },
     {
       "icon": "🎉",
-      "title": "Experienced Hosts",
-      "description": "We keep the energy high all night"
+      "title": "Everyone Goes Home Happy",
+      "description": "Our hosts keep the energy high and the crowd engaged all night long."
     }
   ],
   "reel_video": "/videos/nlbk-reel.mp4",

@@ -1,30 +1,48 @@
 /* Section / container / title primitives live in App.css (shared) */
 
-.about-content {
-  max-width: 900px;
-  margin: 0 auto;
+/* Two-column split: copy on the left, one full-height image on the right.
+   Mobile collapses to a single column with the image stacked on top. */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+.about-copy {
+  min-width: 0;
+}
+
+.about-media {
+  min-width: 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.about-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-card);
 }
 
 .about-text {
   font-size: var(--text-lg);
   line-height: 1.8;
   color: var(--text-secondary);
-  text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-8);
 }
 
 .about-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: var(--space-6);
-  margin-top: var(--space-12);
-  /* Content-sized cards: never stretch rows to fill the column */
-  align-items: start;
-  grid-auto-rows: min-content;
+  margin-top: var(--space-8);
 }
 
 .feature {
-  text-align: center;
   padding: var(--space-8) var(--space-6);
   background: rgba(20, 20, 20, 0.5);
   border-radius: var(--radius-card);
@@ -57,31 +75,37 @@
   line-height: var(--leading-body);
 }
 
+/* Desktop: left copy column, right image column stretched to section height.
+   Headings drop their shared center alignment inside the split. */
+@media (min-width: 769px) {
+  .about-split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .about-split .section-eyebrow,
+  .about-split .section-title,
+  .about-split .about-text {
+    text-align: left;
+  }
+}
+
 @media (max-width: 768px) {
+  /* Image stacks above the text, fixed height, full width */
+  .about-media {
+    order: -1;
+    height: 280px;
+  }
+
+  .about-media img {
+    height: 280px;
+  }
+
   .about-features {
     gap: var(--space-4);
   }
 
   .feature {
-    padding: var(--space-6) var(--space-4);
-  }
-}
-
-/* Desktop: three square cards across the centered 900px column (~284px each,
-   room enough for the full --text-h3 title scale). aspect-ratio sets the
-   square target; the content-based grid minimum lets a card grow taller
-   than square rather than clip its text. */
-@media (min-width: 769px) {
-  .about-features {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .feature {
-    aspect-ratio: 1 / 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: var(--space-6) var(--space-4);
   }
 }
