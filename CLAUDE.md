@@ -7,6 +7,20 @@ with a contact form that emails the owner (Alex) and a Decap CMS at `/admin`.
 > CMS-wiring sprint that connected About/Services/Testimonials to Decap — see CMS section).
 > Where it corrects an earlier draft or stale assumptions, that's noted inline. Trust the code.
 
+## ▶ Current sprint — Site Speed & Performance (start here)
+
+Before doing other work in this repo, read the sprint doc in Jon's Obsidian vault:
+**`10-Greenfield-Tech/projects/NLBK/Sprint - Site Speed & Performance.md`**
+(vault: `~/Documents/Obsidian Vault/`, reachable through the Obsidian MCP connector or the filesystem).
+
+Summary: Phase 0 = measure (PageSpeed + bundle size) → Phase 1 = quick wins on branch
+`perf/quick-wins` (poster-first hero video, self-hosted fonts, WebP + lazy images via
+Netlify Image CDN, CSS/IntersectionObserver reveals instead of framer-motion, scroll-snap
+gallery instead of Swiper, lazy-load ContactForm, cache headers). Phase 2 (CRA → Astro)
+is **not approved** — Jon decides after Phase 1. Don't break Decap CMS, Netlify Forms
+(immutable field names), `/booking`, JSON-LD/sitemap, or reduced-motion behavior.
+Claude never pushes/merges — commit locally and hand Jon a commit message.
+
 ---
 
 ## Stack
